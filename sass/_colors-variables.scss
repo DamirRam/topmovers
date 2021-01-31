@@ -2,12 +2,14 @@
 $text-dark: #000000;
 $text-lighten: #868686;
 $text-light: #ffffff;
-/* цвета фона */
+$text-main: #ff6000;
+/* цвета фона и базовые цвета*/
 $bg-light: #ffffff;
-$bg-offer: #f1f1f1;
-$bg-catalog: #f5f6f8;
-$bg-contacts: #fafbfc;
+$bg-dark: #000000;
+$bg-main: #ff6000;
 /* цвет фона и текста кнопки */
 $btn-color: #507fe1;
 $btn-color_hover: #3866c7;
 $btn-catalog: #6a99e9;
+/* переменные */
+$transition-delay: 0.3s;

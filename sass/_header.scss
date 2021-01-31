@@ -1,0 +1,239 @@
+.header {
+  position: fixed;
+  top: 0px;
+  left: 0px; 
+  right: 0px;
+  font-size: 1.5rem;
+  background-color: $bg-dark;
+  height: 8rem;
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8rem;
+  }
+}
+.menu-btn {
+  position: relative;
+  width: 5rem;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  transition: all $transition-delay;
+  &:hover {
+    background-color: $bg-main;
+    transition: all $transition-delay;
+    .menu-btn__line, .menu-btn__line::after, .menu-btn__line::before {
+      background-color: $bg-light;
+      transition: all $transition-delay;
+    }
+  }
+
+  @mixin menu-btn__line(){
+    position: absolute;
+
+    display: block;
+    width: 2rem;
+    height: 3px;
+
+    border: none;
+    background-color: $bg-main;
+    transition: all $transition-delay;
+  }
+  &__line {
+    @include menu-btn__line;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &::after {
+      @include menu-btn__line;
+
+      content: "";
+      top: 7px;
+    }
+    &::before {
+      @include menu-btn__line;
+
+      content: "";
+      bottom: 7px;
+    }
+  }
+}
+.logo {
+  display: flex;
+  flex-direction: column;
+  margin-top: -0.6rem;
+  &__title {
+    margin-top: 0;
+    font-family: calibri;
+    font-size: 30px;
+    color: $text-light;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: normal;
+    span {
+      color: $text-main;
+    }
+  }
+  &__subtitle {
+    font-size: 14px;
+    color: $text-light;
+  }
+}
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  max-width: 30rem;
+
+  &__address {
+    position: relative;
+    margin-bottom: 1.3rem;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -20px;
+      display: block;
+      width: 15px;
+      height: 15px;
+      background: url("../img/geo.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &__schedule {
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -20px;
+      display: block;
+      width: 15px;
+      height: 15px;
+      background: url("../img/schedule.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &__phone {
+    position: relative;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+    @include regular();
+    font-size: 1.7rem;
+    color: $text-light;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -20px;
+      display: block;
+      width: 15px;
+      height: 15px;
+      background: url("../img/phone.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &__mail {
+    position: relative;
+    color: $text-light;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -20px;
+      display: block;
+      width: 15px;
+      height: 15px;
+      background: url("../img/email.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+}
+.language {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  &__item {
+    position: relative;
+    margin-bottom: 1.3rem;
+    color: $text-light;
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+  &__link {
+    color: $text-light;
+    &_english::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -25px;
+      display: block;
+      width: 15px;
+      height: 15px;
+      background: url("../img/english.png") center no-repeat;
+    }
+    &_russian::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -25px;
+      display: block;
+      width: 15px;
+      height: 15px;
+      background: url("../img/russian.png") center no-repeat;
+    }
+  }
+}
+.btn-callback {
+  @include regular(700);
+  border: 2px solid $bg-main;
+  background-color: $bg-dark;
+  color: $text-main;
+}
+/* медиа запросы */
+@media (max-width: 992px) {
+  .contact {
+    &_address {
+      display: none;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .contact {
+    &_phone {
+      display: none;
+    }
+  }
+}
+@media (max-width: 550px) {
+  .contact {
+    &_phone {
+      display: none;
+    }
+  }
+  .language {
+    &__link {
+      display: inline-block;
+      &_english {
+      margin-bottom: 1.9rem;
+      }
+    }
+    &__text {
+      display: none;
+    }
+  }
+  .btn-callback {
+    display: none;
+  }
+}

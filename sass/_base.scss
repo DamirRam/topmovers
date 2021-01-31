@@ -7,6 +7,7 @@ html {
 }
 body {
   @include light();
+  color: $text-light;
 }
 a, button, input, textarea, select {
   outline: none;
@@ -15,11 +16,30 @@ a, button, input, textarea, select {
     outline: none;
   }
 }
+a {
+  transition: all $transition-delay;
+}
 a:hover {
   text-decoration: none;
+  text-shadow: 2px 2px 3px $text-main;
+  color: $text-main;
+  transition: all $transition-delay;
 }
 a:active {
-  color: $text-dark;
+  color: $text-light;
+}
+.button {
+  padding: 1.2rem 2.5rem 1.2rem 2.5rem;
+  text-transform: uppercase;
+  border: none;
+  background-color: $bg-main;
+  color: $text-light;
+  transition: all $transition-delay;
+  &:hover {
+    background-color: darken($bg-main, 5%);
+    color: darken($text-light, 5%);
+    transition: all $transition-delay;
+  }
 }
 /* контейнер для контента */
 .container {

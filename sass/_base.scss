@@ -1,0 +1,54 @@
+/* базовые настройки */
+*{
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+}
+body {
+  @include light();
+}
+a, button, input, textarea, select {
+  outline: none;
+  text-decoration: none;
+  &:focus {
+    outline: none;
+  }
+}
+a:hover {
+  text-decoration: none;
+}
+a:active {
+  color: $text-dark;
+}
+/* контейнер для контента */
+.container {
+  max-width: 1170px;
+  margin: 0px auto;
+}
+/* медиа запросы */
+@media(max-width: 1200px) {
+  .container {
+    max-width: 970px;
+  }
+}
+@media(max-width: 992px) {
+  html{
+    font-size: 8px;
+  }
+  .container {
+    max-width: 750px;
+  }
+}
+@media(max-width: 768px) {
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media(max-width: 480px) {
+  .input {
+    padding: 2rem 2rem;
+    height: 6rem;
+  }
+}

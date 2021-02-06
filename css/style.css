@@ -90,12 +90,13 @@ a:active {
 .section {
   position: relative;
   z-index: 10;
-  padding-top: 1rem;
-  padding-bottom: 10rem;
+  padding-top: 0;
+  padding-bottom: 14rem;
 }
 .section__title {
   position: relative;
-  font-size: 2.5rem;
+  z-index: 5;
+  font-size: 3rem;
   font-family: "Proxima Nova Regular", sans-serif;
   font-weight: 700;
   color: #000000;
@@ -105,9 +106,9 @@ a:active {
   position: absolute;
   z-index: 1;
   left: 0px;
-  bottom: 0px;
+  bottom: -5px;
   display: block;
-  width: 2rem;
+  width: 4rem;
   height: 3px;
   background-color: #507fe1;
 }
@@ -481,7 +482,7 @@ a:active {
     flex-direction: column;
   }
 }
-/* main */
+/* Главный экран */
 .main-content {
   margin-top: 8rem;
 }
@@ -637,7 +638,7 @@ a:active {
   }
 
   .main-form {
-    width: 90%;
+    width: 100%;
     margin-right: auto;
     margin-left: auto;
   }
@@ -658,7 +659,7 @@ a:active {
     margin-left: auto;
   }
 }
-/* main */
+/* О компании */
 .about {
   background-color: #ffffff;
 }
@@ -672,6 +673,142 @@ a:active {
 @media (max-width: 768px) {
   .about__wrap {
     max-width: 100%;
+  }
+}
+/* Услуги */
+.service {
+  background-color: #f1f1f1;
+}
+.service::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -100px;
+  left: 0;
+  right: 0;
+  display: block;
+  width: 100%;
+  height: 150px;
+  background-color: #f1f1f1;
+  transform: skewY(-2deg);
+}
+.service__title {
+  margin-bottom: 3rem;
+}
+.service__wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.service__card {
+  margin-top: 4rem;
+}
+
+.card {
+  position: relative;
+  z-index: 5;
+  background-color: #ffffff;
+  flex-basis: 48%;
+  height: 45rem;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.card:hover .card__text-wrap {
+  background-color: #507fe1;
+  color: #ffffff;
+  transition: all 0.3s;
+  visibility: visible;
+}
+.card:hover .card__text-wrap::before {
+  background-color: #507fe1;
+  transition: all 0.3s;
+}
+.card:hover .card__link {
+  visibility: visible;
+  color: #ffffff;
+}
+.card:hover .card__title {
+  color: #ffffff;
+}
+.card__img {
+  width: 100%;
+}
+.card__text-wrap {
+  position: absolute;
+  top: 22rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  padding: 1rem 2rem;
+  width: 100%;
+  height: auto;
+  font-size: 1.5rem;
+  background-color: #ffffff;
+  transition: all 0.3s;
+}
+.card__text-wrap::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 70px;
+  display: block;
+  background-color: #ffffff;
+  transform: skewY(5deg);
+  transition: all 0.3s;
+}
+.card__text-wrap::after {
+  content: "";
+  position: absolute;
+  top: -15px;
+  right: 0;
+  z-index: 0;
+  width: 35%;
+  height: 60px;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.8);
+  transform: skewY(-10deg);
+  transition: all 0.3s;
+}
+.card__link {
+  position: relative;
+  z-index: 5;
+  visibility: hidden;
+  text-decoration: underline;
+}
+.card__title {
+  position: relative;
+  z-index: 5;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #507fe1;
+}
+.card__text {
+  position: relative;
+  z-index: 5;
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex-basis: 80%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .card__text-wrap {
+    top: auto;
+  }
+}
+@media (max-width: 550px) {
+  .card {
+    flex-basis: 100%;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 

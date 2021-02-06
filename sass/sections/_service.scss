@@ -1,0 +1,133 @@
+.service {
+  background-color: $bg-service;
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: -100px;
+    left: 0;
+    right: 0;
+    display: block;
+    width: 100%;
+    height: 150px;
+    background-color: $bg-service;
+    transform: skewY(-2deg);
+ }
+  &__title {
+    margin-bottom: 3rem;
+  }
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  &__card {
+    margin-top: 4rem;
+  }
+}
+.card {
+  position: relative;
+  z-index: 5;
+  background-color: $bg-light;
+  flex-basis: 48%;
+  height: 45rem;
+  overflow: hidden;
+  transition: all $transition-delay;
+  &:hover .card__text-wrap{
+    background-color: $bg-main;
+    color: $text-light;
+    transition: all $transition-delay;
+    visibility: visible;
+    &::before {
+      background-color: $bg-main;
+      transition: all $transition-delay;
+    }
+  }
+  &:hover .card__link {
+    visibility: visible;
+    color: $text-light;
+  }
+  &:hover .card__title {
+    color: $text-light;
+  }
+  &__img {
+    width: 100%;
+  }
+  &__text-wrap {
+    position: absolute;
+    top: 22rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    padding: 1rem 2rem;
+    width: 100%;
+    height: auto;
+    font-size: 1.5rem;
+    background-color: $bg-light;
+    transition: all $transition-delay;
+    &::before {
+      content: "";
+      position: absolute;
+      top: -15px;
+      left: 0;
+      z-index: 2;
+      width: 100%;
+      height: 70px;
+      display: block;
+      background-color: $bg-light;
+      transform: skewY(5deg);
+      transition: all $transition-delay;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: -15px;
+      right: 0;
+      z-index: 0;
+      width: 35%;
+      height: 60px;
+      display: block;
+      background-color: rgba($bg-light, 0.8);
+      transform: skewY(-10deg);
+      transition: all $transition-delay;
+    }
+  }
+  &__link {
+    position: relative;
+    z-index: 5;
+    visibility: hidden;
+    text-decoration: underline;
+  }
+  &__title {
+    position: relative;
+    z-index: 5;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 900;
+    color: $text-main;
+  }
+  &__text {
+    position: relative;
+    z-index: 5;
+  }
+}
+@media (max-width: 768px) {
+  .card {
+    flex-basis: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    &__text-wrap {
+      top: auto;
+    }
+  }
+}
+@media (max-width: 550px) {
+  .card {
+    flex-basis: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}

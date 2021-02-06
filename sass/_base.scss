@@ -7,7 +7,7 @@ html {
 }
 body {
   @include light();
-  color: $text-light;
+  color: $text-dark;
 }
 a, button, input, textarea, select {
   outline: none;
@@ -18,10 +18,10 @@ a, button, input, textarea, select {
 }
 a {
   transition: all $transition-delay;
+  color: $text-light;
 }
 a:hover {
   text-decoration: none;
-  text-shadow: 2px 2px 3px $text-main;
   color: $text-main;
   transition: all $transition-delay;
 }
@@ -39,6 +39,31 @@ a:active {
     background-color: darken($bg-main, 5%);
     color: darken($text-light, 5%);
     transition: all $transition-delay;
+  }
+}
+.input {
+  padding: 1rem;
+  font-size: 1.6rem;
+}
+.section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  &__title {
+    position: relative;
+    font-size: 2.5rem;
+    @include regular(700);
+    color: $text-dark;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0px;
+      bottom: 0px;
+      display: block;
+      width: 2rem;
+      height: 3px;
+      background-color: $bg-main;
+
+    }
   }
 }
 /* контейнер для контента */

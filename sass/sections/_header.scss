@@ -5,12 +5,18 @@
   right: 0px;
   font-size: 1.5rem;
   background-color: $bg-dark;
-  height: 8rem;
+  height: $header-height;
+  color: $text-light;
+  &__inner {
+    position: relative;
+    z-index: 5;
+    background-color: $bg-dark;
+  }
   &__wrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 8rem;
+    height: $header-height;
   }
 }
 .menu-btn {
@@ -66,15 +72,15 @@
   margin-top: -0.6rem;
   &__title {
     margin-top: 0;
-    font-family: calibri;
-    font-size: 30px;
+    @include bold(700);
+    font-size: 28px;
     color: $text-light;
     text-transform: uppercase;
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: 0.8px;
     line-height: normal;
     span {
-      color: $text-main;
+      color: #ffa000;
     }
   }
   &__subtitle {
@@ -93,31 +99,35 @@
     position: relative;
     margin-bottom: 1.3rem;
     &::before {
-      content: "";
+      font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+      content: "\f3c5";
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: $icons-color;
       position: absolute;
       top: 50%;
-      transform: translateY(-50%);
-      left: -20px;
+      transform: translateY(-59%);
+      left: -18px;
       display: block;
       width: 15px;
       height: 15px;
-      background: url("../img/geo.png") center no-repeat;
-      background-size: contain;
     }
   }
   &__schedule {
     position: relative;
     &::before {
-      content: "";
+      font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+      content: "\f017";
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: $icons-color;
       position: absolute;
       top: 50%;
-      transform: translateY(-50%);
+      transform: translateY(-59%);
       left: -20px;
       display: block;
       width: 15px;
       height: 15px;
-      background: url("../img/schedule.png") center no-repeat;
-      background-size: contain;
     }
   }
   &__phone {
@@ -128,32 +138,36 @@
     font-size: 1.7rem;
     color: $text-light;
     &::before {
-      content: "";
+      font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+      content: "\f098";
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: $icons-color;
       position: absolute;
       top: 50%;
-      transform: translateY(-50%);
+      transform: translateY(-59%);
       left: -20px;
       display: block;
       width: 15px;
       height: 15px;
-      background: url("../img/phone.png") center no-repeat;
-      background-size: contain;
     }
   }
   &__mail {
     position: relative;
     color: $text-light;
     &::before {
-      content: "";
+      font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+      content: "\f0e0";
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: $icons-color;
       position: absolute;
       top: 50%;
-      transform: translateY(-50%);
+      transform: translateY(-59%);
       left: -20px;
       display: block;
       width: 15px;
       height: 15px;
-      background: url("../img/email.png") center no-repeat;
-      background-size: contain;
     }
   }
 }
@@ -217,16 +231,40 @@
   }
 }
 @media (max-width: 550px) {
+  .menu-btn {
+    width: 15%;
+  }
+  .logo {
+    width: 70%;
+    &__title {
+      margin-right: auto;
+      margin-left: auto;
+    }
+    &__subtitle {
+      display: inline-block;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
   .contact {
     &_phone {
       display: none;
     }
   }
   .language {
+    width: 15%;
     &__link {
       display: inline-block;
       &_english {
-      margin-bottom: 1.9rem;
+        margin-bottom: 1.9rem;
+        &::before {
+          left: 35%;
+        }
+      }
+      &_russian {
+        &::before {
+           left: 35%;
+        }
       }
     }
     &__text {

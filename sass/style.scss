@@ -5,4 +5,10 @@
 /* базовые настройки */
 @import "base";
 /* header */
-@import "header";
+@import "sections/header";
+/* menu */
+@import "sections/menu";
+/* main */
+@import "sections/main";
+/* main */
+@import "sections/about";

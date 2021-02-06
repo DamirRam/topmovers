@@ -9,14 +9,17 @@
     <link rel="stylesheet" href="css/normalize.css">
     <!-- Кастомные стили -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="css/all.min.css">
 
     <title>Topmovers</title>
   </head>
 
   <body>
+
   <header class="header">
-    <div class="container">
-      <div class="header__wrap">
+    <div class="header__inner">
+      <div class="container header__wrap">
 
         <button class="menu-btn">
           <span class="menu-btn__line"></span>
@@ -58,11 +61,114 @@
         </ul>
         <!-- /.language -->
       </div>
-      <!-- /.header__wrap -->
+      <!-- /.container header__wrap-->
     </div>
-    <!-- /.container -->
+    <!-- /.header__inner -->
+
+    <nav class="menu">
+      <div class="container">
+
+        <ul class="menu-block menu__block">
+
+          <li class="menu-block__item">
+            <a class="menu-block__link" href="#">О компании</a>
+          </li>
+          <!-- /.menu-block__item -->
+          <li class="menu-block__item">
+            <a class="menu-block__link" href="#">Услуги</a>
+          </li>
+          <!-- /.menu-block__item -->
+          <li class="menu-block__item">
+            <a class="menu-block__link" href="#">Стоимость</a>
+          </li>
+          <!-- /.menu-block__item -->
+          <li class="menu-block__item">
+            <a class="menu-block__link" href="#">Упаковка</a>
+          </li>
+          <!-- /.menu-block__item -->
+          <li class="menu-block__item">
+            <a class="menu-block__link" href="#">Страхование</a>
+          </li>
+          <!-- /.menu-block__item -->
+          <li class="menu-block__item">
+            <a class="menu-block__link" href="#">Отзывы</a>
+          </li>
+          <!-- /.menu-block__item -->
+          <li class="menu-block__item">
+            <a class="menu-block__link" href="#">Контакты</a>
+          </li>
+          <!-- /.menu-block__item -->
+
+        </ul>
+        <!-- /.menu-block menu__block -->
+
+      </div>
+      <!-- /.container -->
+    </nav>
+    <!-- /.menu -->
   </header>
   <!-- /.header -->
+
+  <main class="main-content">
+
+    <section class="main">
+      <div class="container">
+        <div class="main__wrap">
+
+          <div class="main__title-wrap">
+            <h1 class="main__title">Международные переезды</h1>
+            <!-- /.main__title -->
+            <span class="main__subtitle">Выполняем переезды в 70+ стран из России и обратно</span>
+          </div>
+
+          <form class="main-form" action="" method="POST">
+            <input class="input main-form__input" type="text" placeholder="Ваше имя">
+            <input class="input main-form__input" type="text" placeholder="Ваш телефон">
+            <button class="main-form__button">Получить консультацию</button>
+            <div class="policy main__policy">
+              <input class="policy__checkbox" type="checkbox">
+              <span class="policy__text">Принимаю условия</span>
+              <a href="" class="policy__link">политики конфиденциальности</a>
+            </div>
+          </form>
+          <!-- /.main-form -->
+
+          <div class="features main__features">
+            <div class="features__item">
+              <img class="features__img" src="img/main/icon1.png" alt="Преимущество 1">
+              <span class="features__text">Преимущество 1</span>
+            </div>
+            <!-- /.features__item -->
+            <div class="features__item">
+              <img class="features__img" src="img/main/icon1.png" alt="Преимущество 2">
+              <span class="features__text">Преимущество 2</span>
+            </div>
+            <!-- /.features__item -->
+            <div class="features__item">
+              <img class="features__img" src="img/main/icon1.png" alt="Преимущество 3">
+              <span class="features__text">Преимущество 3</span>
+            </div>
+            <!-- /.features__item -->
+            <div class="features__item">
+              <img class="features__img" src="img/main/icon1.png" alt="Преимущество 4">
+              <span class="features__text">Преимущество 4</span>
+            </div>
+            <!-- /.features__item -->
+          </div>
+          <!-- /.features -->
+
+        </div>
+        <!-- /.main__wrap -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /.main -->
+
+
+
+  </main>
+
+
 
   </body>
 </html>

@@ -40,8 +40,8 @@ html {
 }
 
 body {
-  font-family: "Proxima Nova Light", sans-serif;
-  font-weight: normal;
+  font-family: "Proxima Nova Regular", sans-serif;
+  font-weight: 300;
   color: #000000;
 }
 
@@ -88,8 +88,10 @@ a:active {
 }
 
 .section {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  position: relative;
+  z-index: 10;
+  padding-top: 1rem;
+  padding-bottom: 10rem;
 }
 .section__title {
   position: relative;
@@ -101,6 +103,7 @@ a:active {
 .section__title::before {
   content: "";
   position: absolute;
+  z-index: 1;
   left: 0px;
   bottom: 0px;
   display: block;
@@ -123,7 +126,7 @@ a:active {
 }
 @media (max-width: 992px) {
   html {
-    font-size: 8px;
+    font-size: 9px;
   }
 
   .container {
@@ -148,6 +151,7 @@ a:active {
   top: 0px;
   left: 0px;
   right: 0px;
+  z-index: 20;
   font-size: 1.5rem;
   background-color: #000000;
   height: 8rem;
@@ -483,23 +487,40 @@ a:active {
 }
 
 .main {
-  padding: 5rem 0 5rem 0;
+  position: relative;
+  padding: 5rem 0 12rem 0;
   font-size: 1.6rem;
+  background: url(../img/main/main.png) center no-repeat;
+  background-size: cover;
   background-color: #ffffff;
+}
+.main::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: -100px;
+  left: 0;
+  right: 0;
+  display: block;
+  width: 100%;
+  height: 150px;
+  background-color: #ffffff;
+  transform: skewY(2deg);
 }
 .main__title-wrap {
   margin-bottom: 6rem;
   text-align: center;
+  color: #ffffff;
 }
 .main__title {
   font-family: "Proxima Nova Bold", sans-serif;
   font-weight: 700;
-  font-size: 4rem;
+  font-size: 4.5rem;
 }
 .main__subtitle {
   font-family: "Proxima Nova Regular", sans-serif;
   font-weight: 300;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 .main__policy {
   margin-top: 1rem;
@@ -513,7 +534,7 @@ a:active {
   margin-right: auto;
   margin-left: auto;
   padding: 2rem;
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.8);
   color: #ffffff;
 }
 .main-form__input {
@@ -558,6 +579,7 @@ a:active {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #ffffff;
 }
 .features__item {
   text-align: center;
@@ -607,6 +629,13 @@ a:active {
   }
 }
 @media (max-width: 550px) {
+  .main__title {
+    font-size: 3.9rem;
+  }
+  .main__subtitle {
+    font-size: 2rem;
+  }
+
   .main-form {
     width: 90%;
     margin-right: auto;
@@ -630,5 +659,20 @@ a:active {
   }
 }
 /* main */
+.about {
+  background-color: #ffffff;
+}
+.about__wrap {
+  max-width: 70%;
+}
+.about__text {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .about__wrap {
+    max-width: 100%;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */

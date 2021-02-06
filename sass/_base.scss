@@ -6,7 +6,7 @@ html {
   font-size: 10px;
 }
 body {
-  @include light();
+  @include regular(300);
   color: $text-dark;
 }
 a, button, input, textarea, select {
@@ -46,8 +46,10 @@ a:active {
   font-size: 1.6rem;
 }
 .section {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  position: relative;
+  z-index: 10;
+  padding-top: 1rem;
+  padding-bottom: 10rem;
   &__title {
     position: relative;
     font-size: 2.5rem;
@@ -56,13 +58,13 @@ a:active {
     &::before {
       content: "";
       position: absolute;
+      z-index: 1;
       left: 0px;
       bottom: 0px;
       display: block;
       width: 2rem;
       height: 3px;
       background-color: $bg-main;
-
     }
   }
 }
@@ -79,7 +81,7 @@ a:active {
 }
 @media(max-width: 992px) {
   html{
-    font-size: 8px;
+    font-size: 9px;
   }
   .container {
     max-width: 750px;

@@ -3,7 +3,7 @@
 }
 .main {
   position: relative;
-  padding: 5rem 0 12rem 0;
+  padding: 5rem 0 15rem 0;
   font-size: 1.6rem;
   background: url(../img/main/main.png) center no-repeat;
   background-size: cover;
@@ -37,9 +37,6 @@
   &__policy {
     margin-top: 1rem;
   }
-  &__features {
-    margin-top: 6rem;
-  }
 }
 .main-form {
   width: 73rem;
@@ -64,13 +61,14 @@
   &__button {
     display: inline-block;
     margin-right: -2px;
-    margin-left: -1px;
+    margin-left: -2px;
     padding: 1rem;
     width: 23rem;
     text-transform: none;
     color: $text-light;
     background-color: $btn-color;
     border: 1px solid $btn-color;
+    border-left: 1px solid $bg-dark;
     transition: all $transition-delay;
     &:hover {
       background-color: darken($bg-main, 5%);
@@ -85,23 +83,6 @@
     &:hover {
       text-decoration: underline;
     }
-  }
-}
-.features {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: $text-light;
-  &__item {
-    text-align: center;
-  }
-  &__img {
-    width: 7rem;
-  }
-  &__text {
-    display: block;
-    margin-top: 2rem;
-    @include regular(700);
   }
 }
 
@@ -130,13 +111,6 @@
        width: 100%;
        margin-right: auto;
        margin-left: auto;
-    }
-  }
-  .features {
-    flex-wrap: wrap;
-    &__item {
-      flex-basis: 50%;
-      margin-top: 5rem;
     }
   }
 }

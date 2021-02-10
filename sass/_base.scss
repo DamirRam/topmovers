@@ -36,8 +36,9 @@ a:active {
   color: $text-light;
   transition: all $transition-delay;
   &:hover {
-    background-color: darken($bg-main, 5%);
+    background-color: darken($bg-main, 15%);
     color: darken($text-light, 5%);
+    border-color: darken($bg-main, 15%);
     transition: all $transition-delay;
   }
 }
@@ -48,24 +49,16 @@ a:active {
 .section {
   position: relative;
   z-index: 10;
-  padding-top: 0;
   padding-bottom: 14rem;
   &__title {
     position: relative;
     z-index: 5;
+    margin-bottom: 7rem;
     font-size: 3rem;
     @include regular(700);
     color: $text-dark;
-    &::before {
-      content: "";
-      position: absolute;
-      z-index: 1;
-      left: 0px;
-      bottom: -5px;
-      display: block;
-      width: 4rem;
-      height: 3px;
-      background-color: $bg-main;
+    &:first-letter {
+      border-bottom: 3px solid $bg-main;
     }
   }
 }
@@ -93,10 +86,16 @@ a:active {
     padding-left: 10px;
     padding-right: 10px;
   }
+  .section {
+  &__title {
+    margin-bottom: 3rem;
+  }
 }
-@media(max-width: 480px) {
+}
+@media(max-width: 550px) {
   .input {
     padding: 2rem 2rem;
     height: 6rem;
   }
+
 }

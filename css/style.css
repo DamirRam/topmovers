@@ -77,8 +77,9 @@ a:active {
   transition: all 0.3s;
 }
 .button:hover {
-  background-color: #3a6fdd;
+  background-color: #2156c3;
   color: #f2f2f2;
+  border-color: #2156c3;
   transition: all 0.3s;
 }
 
@@ -90,27 +91,19 @@ a:active {
 .section {
   position: relative;
   z-index: 10;
-  padding-top: 0;
   padding-bottom: 14rem;
 }
 .section__title {
   position: relative;
   z-index: 5;
+  margin-bottom: 7rem;
   font-size: 3rem;
   font-family: "Proxima Nova Regular", sans-serif;
   font-weight: 700;
   color: #000000;
 }
-.section__title::before {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  left: 0px;
-  bottom: -5px;
-  display: block;
-  width: 4rem;
-  height: 3px;
-  background-color: #507fe1;
+.section__title:first-letter {
+  border-bottom: 3px solid #507fe1;
 }
 
 /* контейнер для контента */
@@ -139,8 +132,12 @@ a:active {
     padding-left: 10px;
     padding-right: 10px;
   }
+
+  .section__title {
+    margin-bottom: 3rem;
+  }
 }
-@media (max-width: 480px) {
+@media (max-width: 550px) {
   .input {
     padding: 2rem 2rem;
     height: 6rem;
@@ -489,7 +486,7 @@ a:active {
 
 .main {
   position: relative;
-  padding: 5rem 0 12rem 0;
+  padding: 5rem 0 15rem 0;
   font-size: 1.6rem;
   background: url(../img/main/main.png) center no-repeat;
   background-size: cover;
@@ -526,9 +523,6 @@ a:active {
 .main__policy {
   margin-top: 1rem;
 }
-.main__features {
-  margin-top: 6rem;
-}
 
 .main-form {
   width: 73rem;
@@ -554,13 +548,14 @@ a:active {
 .main-form__button {
   display: inline-block;
   margin-right: -2px;
-  margin-left: -1px;
+  margin-left: -2px;
   padding: 1rem;
   width: 23rem;
   text-transform: none;
   color: #ffffff;
   background-color: #507fe1;
   border: 1px solid #507fe1;
+  border-left: 1px solid #000000;
   transition: all 0.3s;
 }
 .main-form__button:hover {
@@ -574,25 +569,6 @@ a:active {
 }
 .policy__link:hover {
   text-decoration: underline;
-}
-
-.features {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #ffffff;
-}
-.features__item {
-  text-align: center;
-}
-.features__img {
-  width: 7rem;
-}
-.features__text {
-  display: block;
-  margin-top: 2rem;
-  font-family: "Proxima Nova Regular", sans-serif;
-  font-weight: 700;
 }
 
 @media (max-width: 992px) {
@@ -619,14 +595,6 @@ a:active {
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-  }
-
-  .features {
-    flex-wrap: wrap;
-  }
-  .features__item {
-    flex-basis: 50%;
-    margin-top: 5rem;
   }
 }
 @media (max-width: 550px) {
@@ -713,6 +681,7 @@ a:active {
   height: 45rem;
   overflow: hidden;
   transition: all 0.3s;
+  box-shadow: 0px 0px 25px #507fe1;
 }
 .card:hover .card__text-wrap {
   background-color: #507fe1;
@@ -778,6 +747,7 @@ a:active {
   position: relative;
   z-index: 5;
   visibility: hidden;
+  font-size: 1.8rem;
   text-decoration: underline;
 }
 .card__title {
@@ -809,6 +779,205 @@ a:active {
     flex-basis: 100%;
     margin-right: auto;
     margin-left: auto;
+  }
+}
+/* Преимущества */
+.features {
+  padding-bottom: 18rem;
+  background-color: #ffffff;
+}
+.features::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -100px;
+  left: 0;
+  right: 0;
+  display: block;
+  width: 100%;
+  height: 150px;
+  background-color: #ffffff;
+  transform: skewY(2deg);
+}
+.features__wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #000000;
+}
+.features__item {
+  text-align: center;
+}
+.features__img {
+  width: 7rem;
+}
+.features__text {
+  display: block;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  font-family: "Proxima Nova Regular", sans-serif;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .features__wrap {
+    flex-wrap: wrap;
+  }
+  .features__item {
+    flex-basis: 50%;
+    margin-top: 5rem;
+  }
+}
+/* Стоимость */
+.price {
+  background-color: #f1f1f1;
+}
+.price::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -100px;
+  left: 0;
+  right: 0;
+  display: block;
+  width: 100%;
+  height: 150px;
+  background-color: #f1f1f1;
+  transform: skewY(-2deg);
+}
+.price__wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-card {
+  position: relative;
+  z-index: 5;
+  width: 28rem;
+  height: 50rem;
+  font-size: 1.5rem;
+  text-align: center;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 25px #507fe1;
+  transition: all 0.3s;
+}
+.price-card:hover {
+  background-color: #507fe1;
+  transition: all 0.3s;
+  color: #ffffff;
+}
+.price-card:hover .price-card__title {
+  color: #ffffff;
+}
+.price-card:hover .price-block::after {
+  background-color: #507fe1;
+  transition: all 0.3s;
+}
+.price-card:hover .price-card__link {
+  visibility: visible;
+  color: #ffffff;
+  text-decoration: underline;
+}
+.price-card__price-block {
+  margin-bottom: 2rem;
+}
+.price-card__title {
+  position: relative;
+  z-index: 5;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #507fe1;
+}
+.price-card__description {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.price-card__link {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 2rem;
+  width: 100%;
+  visibility: hidden;
+  font-size: 1.8rem;
+}
+
+.price-block {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  flex-direction: column;
+  height: 50%;
+  text-align: center;
+  vertical-align: middle;
+  color: #ffffff;
+  transition: all 0.3s;
+}
+.price-block::after {
+  content: "";
+  position: absolute;
+  bottom: -27px;
+  right: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 4rem;
+  background-color: #ffffff;
+  transform: skewY(5deg);
+  transition: all 0.3s;
+}
+.price-block::before {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  right: 0;
+  display: block;
+  width: 35%;
+  height: 3rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  transform: skewY(-11deg);
+}
+.price-block_one {
+  background: url(../img/price/cost-1.png) center no-repeat;
+  background-size: cover;
+}
+.price-block_two {
+  background: url(../img/price/cost-1.png) center no-repeat;
+  background-size: cover;
+}
+.price-block_three {
+  background: url(../img/price/cost-1.png) center no-repeat;
+  background-size: cover;
+}
+.price-block__price {
+  display: inline-block;
+  margin-left: 1rem;
+  font-family: "Proxima Nova Bold", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+}
+.price-block__time {
+  display: block;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 992px) {
+  .price-card {
+    width: 26rem;
+    height: 53rem;
+  }
+}
+@media (max-width: 768px) {
+  .price__wrap {
+    flex-direction: column;
+  }
+
+  .price-card {
+    width: 31rem;
+    margin-top: 3rem;
   }
 }
 

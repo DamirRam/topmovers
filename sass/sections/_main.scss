@@ -54,9 +54,6 @@
     &:first-child {
       border-right: 1px solid $bg-dark;
     }
-    &:last-child {
-      border-right-color: $btn-color;
-    }
   }
   &__button {
     display: inline-block;
@@ -70,11 +67,6 @@
     border: 1px solid $btn-color;
     border-left: 1px solid $bg-dark;
     transition: all $transition-delay;
-    &:hover {
-      background-color: darken($bg-main, 5%);
-      color: darken($text-light, 5%);
-      transition: all $transition-delay;
-    }
   }
 }
 .policy {
@@ -105,12 +97,14 @@
       margin-right: auto;
       margin-left: auto;
       margin-bottom: 2rem;
+      border: none;
     }
     &__button {
        display: block;
        width: 100%;
        margin-right: auto;
        margin-left: auto;
+       border-left-color: $bg-main;
     }
   }
 }
@@ -134,7 +128,6 @@
       margin-right: auto;
       margin-left: auto;
       margin-bottom: 2rem;
-      border: none;
     }
     &__button {
        display: block;

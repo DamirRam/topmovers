@@ -4,6 +4,9 @@
 @import "colors-variables";
 /* базовые настройки */
 @import "base";
+/* slick слайдер */
+@import "slick/slick";
+@import "slick/slick-theme";
 /* header */
 @import "sections/header";
 /* menu */
@@ -18,3 +21,5 @@
 @import "sections/features";
 /* Стоимость */
 @import "sections/price";
+/* Материалы */
+@import "sections/materials";

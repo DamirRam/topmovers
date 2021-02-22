@@ -37,11 +37,18 @@ a:active {
   transition: all $transition-delay;
   &:hover {
     background-color: darken($bg-main, 15%);
-    color: darken($text-light, 5%);
+    color: darken($text-light, 15%);
     border-color: darken($bg-main, 15%);
     transition: all $transition-delay;
   }
+  &_hover:hover {
+    background-color: $bg-dark;
+    color: $text-main;
+    border: 1px solid $bg-main;
+    transition: all $transition-delay;
+  }
 }
+
 .input {
   padding: 1rem;
   font-size: 1.6rem;

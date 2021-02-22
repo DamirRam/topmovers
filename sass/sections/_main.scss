@@ -51,13 +51,11 @@
     width: 23rem;
     border-radius: 0px;
     border: 1px solid #fff;
-    &:first-child {
-      border-right: 1px solid $bg-dark;
-    }
+    border-right: 1px solid $bg-dark;
   }
   &__button {
     display: inline-block;
-    margin-right: -2px;
+    margin-right: -3px;
     margin-left: -2px;
     padding: 1rem;
     width: 23rem;
@@ -65,11 +63,26 @@
     color: $text-light;
     background-color: $btn-color;
     border: 1px solid $btn-color;
-    border-left: 1px solid $bg-dark;
     transition: all $transition-delay;
   }
 }
 .policy {
+  &__label {
+    display: inline-block;
+    margin-left: -2px;
+    width: 11px;
+    height: 11px;
+    border: none;
+    background-color: $bg-light;
+  }
+  &__checkbox:checked + label {
+    background: url(../img/mark.svg) center no-repeat;
+    background-size: cover;
+    background-color: $bg-main;
+  }
+  &__checkbox {
+    display: none;
+  }
   &__link {
     text-decoration: underline;
     &:hover {
@@ -78,10 +91,16 @@
   }
 }
 
+
 @media (max-width: 992px) {
   .main-form {
     &__input {
       margin-right: -2px;
+      margin-left: -1px;
+    }
+  }
+  .policy {
+    &__label {
       margin-left: -1px;
     }
   }
@@ -105,6 +124,11 @@
        margin-right: auto;
        margin-left: auto;
        border-left-color: $bg-main;
+    }
+  }
+  .policy {
+    &__label {
+      margin-left: 0;
     }
   }
 }
@@ -135,6 +159,14 @@
        height: 40px;
        margin-right: auto;
        margin-left: auto;
+    }
+  }
+}
+@media (max-width: 420px) {
+  .policy {
+    &__link {
+      display: block;
+      margin-left: 1.7rem;
     }
   }
 }

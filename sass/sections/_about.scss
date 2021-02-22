@@ -6,6 +6,14 @@
   &__text {
     font-size: 1.5rem;
   }
+  &__title {
+    margin-top: -2.5rem;
+  }
+}
+@media (max-width: 992px) {
+  .about {
+    padding-bottom: 18rem;
+  }
 }
 @media (max-width: 768px) {
   .about {

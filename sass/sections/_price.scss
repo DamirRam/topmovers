@@ -1,5 +1,5 @@
 .price {
-  padding-bottom: 18rem;
+  padding-bottom: 22rem;
   background-color: $bg-service;
   &::after {
     content: "";
@@ -10,7 +10,7 @@
     right: 0;
     display: block;
     width: 100%;
-    height: 150px;
+    height: 250px;
     background-color: $bg-service;
     transform: skewY(-2deg);
   }
@@ -18,6 +18,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  &__title {
+    position: relative;
+    top: 1rem;
+    margin-bottom: 8rem;
   }
 }
 .price-card {
@@ -132,6 +137,9 @@
   }
 }
 @media (max-width: 992px) {
+  .price {
+    padding-bottom: 24rem;
+  }
   .price-card {
     width: 26rem;
     height: 53rem;

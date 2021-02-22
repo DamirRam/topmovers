@@ -332,10 +332,6 @@ a:active {
 }
 
 /* Dots */
-.slick-dotted.slick-slider {
-  margin-bottom: 30px;
-}
-
 .slick-dots {
   position: absolute;
   bottom: -25px;
@@ -348,6 +344,7 @@ a:active {
 }
 .slick-dots li {
   position: relative;
+  z-index: 5;
   display: inline-block;
   height: 20px;
   width: 20px;
@@ -738,7 +735,7 @@ a:active {
 
 .main {
   position: relative;
-  padding: 5rem 0 15rem 0;
+  padding: 5rem 0 21rem 0;
   font-size: 1.6rem;
   background: url(../img/main/main.png) center no-repeat;
   background-size: cover;
@@ -753,7 +750,7 @@ a:active {
   right: 0;
   display: block;
   width: 100%;
-  height: 150px;
+  height: 200px;
   background-color: #ffffff;
   transform: skewY(2deg);
 }
@@ -882,7 +879,15 @@ a:active {
 .about__text {
   font-size: 1.5rem;
 }
+.about__title {
+  margin-top: -2.5rem;
+}
 
+@media (max-width: 992px) {
+  .about {
+    padding-bottom: 18rem;
+  }
+}
 @media (max-width: 768px) {
   .about__wrap {
     max-width: 100%;
@@ -890,6 +895,8 @@ a:active {
 }
 /* Услуги */
 .service {
+  padding-top: 0.5rem;
+  padding-bottom: 23rem;
   background-color: #f1f1f1;
 }
 .service::after {
@@ -901,7 +908,7 @@ a:active {
   right: 0;
   display: block;
   width: 100%;
-  height: 150px;
+  height: 250px;
   background-color: #f1f1f1;
   transform: skewY(-2deg);
 }
@@ -1009,6 +1016,12 @@ a:active {
   z-index: 5;
 }
 
+@media (max-width: 992px) {
+  .service {
+    padding-top: 0;
+    padding-bottom: 24rem;
+  }
+}
 @media (max-width: 768px) {
   .card {
     flex-basis: 80%;
@@ -1028,19 +1041,19 @@ a:active {
 }
 /* Преимущества */
 .features {
-  padding-bottom: 18rem;
+  padding-bottom: 15rem;
   background-color: #ffffff;
 }
 .features::after {
   content: "";
   position: absolute;
   z-index: 1;
-  top: -100px;
+  top: -130px;
   left: 0;
   right: 0;
   display: block;
   width: 100%;
-  height: 150px;
+  height: 200px;
   background-color: #ffffff;
   transform: skewY(2deg);
 }
@@ -1050,7 +1063,14 @@ a:active {
   align-items: center;
   color: #000000;
 }
+.features__title {
+  position: relative;
+  top: -5rem;
+  margin-bottom: 2rem;
+}
 .features__item {
+  position: relative;
+  z-index: 5;
   text-align: center;
 }
 .features__img {
@@ -1064,6 +1084,11 @@ a:active {
   font-weight: 700;
 }
 
+@media (max-width: 992px) {
+  .features {
+    padding-bottom: 17rem;
+  }
+}
 @media (max-width: 768px) {
   .features__wrap {
     flex-wrap: wrap;
@@ -1075,7 +1100,7 @@ a:active {
 }
 /* Стоимость */
 .price {
-  padding-bottom: 18rem;
+  padding-bottom: 22rem;
   background-color: #f1f1f1;
 }
 .price::after {
@@ -1087,7 +1112,7 @@ a:active {
   right: 0;
   display: block;
   width: 100%;
-  height: 150px;
+  height: 250px;
   background-color: #f1f1f1;
   transform: skewY(-2deg);
 }
@@ -1095,6 +1120,11 @@ a:active {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.price__title {
+  position: relative;
+  top: 1rem;
+  margin-bottom: 8rem;
 }
 
 .price-card {
@@ -1214,6 +1244,10 @@ a:active {
 }
 
 @media (max-width: 992px) {
+  .price {
+    padding-bottom: 24rem;
+  }
+
   .price-card {
     width: 26rem;
     height: 53rem;
@@ -1232,29 +1266,53 @@ a:active {
 /* Материалы */
 .materials {
   background-color: #ffffff;
+  padding-bottom: 8rem;
 }
-.materials::after {
+.materials::before {
   content: "";
   position: absolute;
   z-index: 1;
-  top: -100px;
+  top: -130px;
   left: 0;
   right: 0;
   display: block;
   width: 100%;
-  height: 150px;
+  height: 250px;
   background-color: #ffffff;
   transform: skewY(2deg);
 }
+.materials::after {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  bottom: -120px;
+  left: 0;
+  right: 0;
+  display: block;
+  width: 100%;
+  height: 200px;
+  background-color: #ffffff;
+  transform: skewY(-2deg);
+}
+.materials__title {
+  position: relative;
+  top: -5.5rem;
+  margin-bottom: 1.5rem;
+}
 .materials__description {
+  position: relative;
+  z-index: 5;
   margin-bottom: 2rem;
   font-size: 1.5rem;
 }
 
 .slider {
+  position: relative;
+  z-index: 5;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: -9rem;
 }
 .slider__slide {
   padding: 2rem;
@@ -1329,6 +1387,115 @@ a:active {
   }
   .slider__prev-btn {
     left: -3.5rem;
+  }
+}
+/* Страхование */
+.insurance {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding-bottom: 23rem;
+  z-index: 5;
+  color: #ffffff;
+}
+.insurance__title {
+  top: 21rem;
+  margin-bottom: 28rem;
+  color: #ffffff;
+}
+.insurance__description {
+  font-size: 1.5rem;
+}
+
+/* Страхование */
+.transport {
+  background-color: #f1f1f1;
+}
+.transport__container {
+  position: relative;
+  top: -5rem;
+}
+.transport::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -130px;
+  left: 0;
+  right: 0;
+  display: block;
+  width: 100%;
+  height: 250px;
+  background-color: #f1f1f1;
+  transform: skewY(2deg);
+}
+.transport__title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.transport__wrap {
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-start;
+}
+.transport__block {
+  position: relative;
+  z-index: 5;
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-start;
+  width: 44.5%;
+}
+.transport__block_width {
+  width: 100%;
+}
+.transport__way {
+  margin-top: 6.3rem;
+  padding: 1rem;
+}
+.transport__way_margin-top-zero {
+  margin-top: 0;
+}
+
+.way__title {
+  font-size: 2rem;
+  font-family: "Proxima Nova Regular", sans-serif;
+  font-weight: 900;
+}
+.way__item {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .transport__wrap {
+    flex-wrap: wrap;
+  }
+  .transport__block {
+    flex-wrap: wrap;
+    width: 100%;
+    text-align: center;
+  }
+  .transport__way {
+    width: 33.3%;
+  }
+  .transport__way:nth-child(4) {
+    margin-top: 0;
+  }
+  .transport__way:nth-child(5) {
+    margin-top: 0;
+  }
+  .transport__way:nth-child(6) {
+    margin-top: 0;
+  }
+}
+@media (max-width: 550px) {
+  .transport__way {
+    padding: 0.5rem;
+    width: 50%;
+    text-align: center;
+  }
+  .transport__way:nth-child(3) {
+    margin-top: 0;
   }
 }
 

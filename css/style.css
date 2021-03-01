@@ -1435,6 +1435,7 @@ a:active {
 /* Страхование */
 .transport {
   background-color: #f1f1f1;
+  padding-bottom: 100px;
 }
 .transport__container {
   position: relative;
@@ -1494,6 +1495,9 @@ a:active {
 }
 
 @media (max-width: 768px) {
+  .transport {
+    padding-bottom: 110px;
+  }
   .transport__wrap {
     flex-wrap: wrap;
   }
@@ -1523,6 +1527,76 @@ a:active {
   }
   .transport__way:nth-child(3) {
     margin-top: 0;
+  }
+}
+/* Отзывы */
+.review {
+  background-color: #ffffff;
+}
+.review::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -100px;
+  left: 0;
+  right: 0;
+  display: block;
+  width: 100%;
+  height: 250px;
+  background-color: #ffffff;
+  transform: skewY(-2deg);
+}
+.review__container {
+  position: relative;
+  top: 1rem;
+}
+
+.review-slider {
+  font-size: 1.5rem;
+}
+.review-slider__slide {
+  padding: 2rem;
+}
+.review-slider__slide:focus {
+  outline: none;
+}
+.review-slider__block {
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+  float: left;
+}
+.review-slider__circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+  height: 100px;
+  width: 100px;
+  border: 2px solid #507fe1;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.review-slider__img {
+  height: 100%;
+}
+.review-slider__name {
+  display: inline-block;
+  margin-top: 2rem;
+  font-family: "Proxima Nova Regular", sans-serif;
+  font-weight: 600;
+}
+
+@media (max-width: 992px) {
+  .review-slider__block {
+    width: 100%;
+    float: none;
+  }
+}
+@media (max-width: 768px) {
+  .review__container {
+    top: 0;
   }
 }
 

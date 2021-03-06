@@ -402,7 +402,7 @@ a:active {
 }
 .header__inner {
   position: relative;
-  z-index: 5;
+  z-index: 20;
   background-color: #000000;
 }
 .header__wrap {
@@ -687,7 +687,7 @@ a:active {
   transition: all 0.3s;
 }
 .menu_active {
-  z-index: 5;
+  z-index: 15;
   transform: translateY(100%);
   opacity: 1;
   transition: all 0.3s;

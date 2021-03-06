@@ -42,7 +42,7 @@
         </div>
         <!-- /.contact -->
 
-        <button class="button btn-callback">Заказать звонок</button>
+        <button class="button btn-callback js-open-modal" data-modal="call">Заказать звонок</button>
 
         <ul class="language">
           <li class="language__item ">
@@ -71,39 +71,39 @@
         <ul class="menu-block menu__block">
 
           <li class="menu-block__item">
-            <a class="menu-block__link" href="#">О компании</a>
+            <a class="menu-block__link" href="#about">О компании</a>
           </li>
           <!-- /.menu-block__item -->
           <li class="menu-block__item">
-            <a class="menu-block__link" href="#">Услуги</a>
+            <a class="menu-block__link" href="#service">Услуги</a>
           </li>
           <!-- /.menu-block__item -->
           <li class="menu-block__item">
-            <a class="menu-block__link" href="#">Преимущества</a>
+            <a class="menu-block__link" href="#features">Преимущества</a>
           </li>
           <!-- /.menu-block__item -->
           <li class="menu-block__item">
-            <a class="menu-block__link" href="#">Стоимость</a>
+            <a class="menu-block__link" href="#price">Стоимость</a>
           </li>
           <!-- /.menu-block__item -->
           <li class="menu-block__item">
-            <a class="menu-block__link" href="#">Упаковка</a>
+            <a class="menu-block__link" href="#materials">Упаковка</a>
           </li>
           <!-- /.menu-block__item -->
           <li class="menu-block__item">
-            <a class="menu-block__link" href="#">Страхование</a>
+            <a class="menu-block__link" href="#insurance">Страхование</a>
           </li>
           <!-- /.menu-block__item -->
           <li class="menu-block__item">
-            <a class="menu-block__link" href="#">Страны</a>
+            <a class="menu-block__link" href="#transport">Страны</a>
           </li>
           <!-- /.menu-block__item -->
           <li class="menu-block__item">
-            <a class="menu-block__link" href="#">Отзывы</a>
+            <a class="menu-block__link" href="#review">Отзывы</a>
           </li>
           <!-- /.menu-block__item -->
           <li class="menu-block__item">
-            <a class="menu-block__link" href="#">Контакты</a>
+            <a class="menu-block__link" href="#footer">Контакты</a>
           </li>
           <!-- /.menu-block__item -->
 
@@ -131,7 +131,7 @@
 
           <form class="main-form" action="" method="POST">
             <input class="input main-form__input" type="text" placeholder="Ваше имя" required>
-            <input class="input main-form__input" type="text" placeholder="Ваш телефон" required>
+            <input class="input main-form__input" type="tel" placeholder="Ваш телефон" required>
             <button class="main-form__button button_hover">Получить консультацию</button>
             <div class="policy main__policy">
               <input class="policy__checkbox" id="policy" type="checkbox" checked>
@@ -149,7 +149,7 @@
     </section>
     <!-- /.main -->
 
-    <section class="about section">
+    <section class="about section" id="about">
       <div class="container">
         <h2 class="about__title section__title">О компании</h2>
         <div class="about__wrap">
@@ -166,7 +166,7 @@
     </section>
     <!-- /.about section -->
 
-    <section class="service section">
+    <section class="service section" id="service">
       <div class="container">
           <h2 class="section__title service__title">Услуги</h2>
           <!-- /.section__header -->
@@ -175,7 +175,7 @@
           <div class="card service__card">
             <img class="card__img" src="img/service/service-1.png" alt="Описание картинки">
             <div class="card__text-wrap">
-              <a class="card__link" href="">Получить консультацию</a>
+              <a class="card__link js-open-modal" href="consult" data-modal="consult">Получить консультацию</a>
               <h3 class="card__title">Услуга 1</h3>
               <!-- /.card__title -->
               <p class="card__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi distinctio, consequuntur! Sequi eaque unde saepe molestiae et consequuntur ipsum ullam reiciendis. Quaerat rem perspiciatis mollitia facilis, in cupiditate quis et suscipit, reprehenderit ipsum, quidem aut architecto, eos ab facere vero dolore ipsa minus sint hic maxime asperiores laboriosam! Cupiditate.</p>
@@ -187,7 +187,7 @@
           <div class="card service__card">
             <img class="card__img" src="img/service/service-1.png" alt="Описание картинки">
             <div class="card__text-wrap">
-              <a class="card__link" href="">Получить консультацию</a>
+              <a class="card__link js-open-modal" href="consult" data-modal="consult">Получить консультацию</a>
               <h3 class="card__title">Услуга 2</h3>
               <!-- /.card__title -->
               <p class="card__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque architecto consequatur quaerat cumque. Hic nobis blanditiis qui deleniti eius ullam, dolores cupiditate itaque quod molestiae mollitia dicta. Fuga aperiam animi, ipsum ullam iure eaque. Nobis nisi, autem asperiores explicabo minus doloremque repellat vitae amet rem optio fuga ratione inventore culpa!</p>
@@ -199,7 +199,7 @@
           <div class="card service__card">
             <img class="card__img" src="img/service/service-1.png" alt="Описание картинки">
             <div class="card__text-wrap">
-              <a class="card__link" href="">Получить консультацию</a>
+              <a class="card__link js-open-modal" href="consult" data-modal="consult">Получить консультацию</a>
               <h3 class="card__title">Услуга 3</h3>
               <!-- /.card__title -->
               <p class="card__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla sequi ratione officia obcaecati a voluptas quibusdam ut incidunt hic, vitae debitis rerum natus similique qui aliquam repellat reprehenderit esse odio, cupiditate sint soluta accusamus. Mollitia dolor labore, autem ullam illum excepturi incidunt, voluptatem nesciunt consectetur ipsum at similique aliquam quasi?</p>
@@ -211,7 +211,7 @@
           <div class="card service__card">
             <img class="card__img" src="img/service/service-1.png" alt="Описание картинки">
             <div class="card__text-wrap">
-              <a class="card__link" href="">Получить консультацию</a>
+              <a class="card__link js-open-modal" href="consult" data-modal="consult">Получить консультацию</a>
               <h3 class="card__title">Услуга 4</h3>
               <!-- /.card__title -->
               <p class="card__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam impedit nobis, quia ut exercitationem aperiam repellat nisi? Enim facilis iusto voluptas animi velit cum quo beatae hic et nam voluptatum, omnis, fugiat! Placeat mollitia ipsum corrupti minima commodi. Natus nesciunt officiis voluptatibus eius doloribus similique provident recusandae fuga, dolorum iusto.</p>
@@ -228,7 +228,7 @@
     </section>
     <!-- /.section service -->
 
-    <section class="features section">
+    <section class="features section" id="features">
       <div class="container">
       <h2 class="features__title section__title">Наши преимущества</h2>
       <!-- /.features__title section__title -->
@@ -262,7 +262,7 @@
     </section>
     <!-- /.features section -->
 
-    <section class="price section">
+    <section class="price section" id="price">
       <div class="container">
 
         <h2 class="price__title section__title">Стоимость перевозки</h2>
@@ -280,7 +280,7 @@
             <!-- /.price-card__title -->
             <p class="price-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, natus et eveniet numquam dolore reprehenderit saepe laboriosam dignissimos voluptatem porro. Suscipit optio exercitationem amet, incidunt molestiae maxime odio blanditiis cupiditate?</p>
             <!-- /.price-card__description -->
-            <a class="price-card__link" href="">Узнать стоимость</a>
+            <a class="price-card__link" href="#cost">Узнать стоимость</a>
           </div>
           <!-- /.price-card -->
           <div class="price-card">
@@ -293,7 +293,7 @@
             <!-- /.price-card__title -->
             <p class="price-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea tempora est rerum ipsa praesentium reprehenderit in nobis eligendi hic quos, quae nihil illum eum nesciunt ducimus fuga accusantium sed totam?</p>
             <!-- /.price-card__description -->
-            <a class="price-card__link" href="">Узнать стоимость</a>
+            <a class="price-card__link" href="#cost">Узнать стоимость</a>
           </div>
           <!-- /.price-card -->
           <div class="price-card">
@@ -306,7 +306,7 @@
             <!-- /.price-card__title -->
             <p class="price-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis debitis in dolor veritatis dicta atque sequi, eos amet quod esse aliquid blanditiis est odio cupiditate voluptatibus veniam, molestiae suscipit fuga.</p>
             <!-- /.price-card__description -->
-            <a class="price-card__link" href="">Узнать стоимость</a>
+            <a class="price-card__link" href="#cost">Узнать стоимость</a>
           </div>
           <!-- /.price-card -->
 
@@ -318,7 +318,7 @@
     </section>
     <!-- /.price section -->
 
-    <section class="materials section">
+    <section class="materials section" id="materials">
       <div class="container">
 
         <h2 class="section__title materials__title">Упаковочные материалы</h2>
@@ -412,11 +412,10 @@
 
       </div>
       <!-- /.container -->
-
     </section>
     <!-- /.materials section -->
 
-    <section class="insurance section">
+    <section class="insurance section" id="insurance">
       <div class="container">
         <h2 class="section__title insurance__title">Страхование</h2>
         <!-- /.section__title -->
@@ -433,7 +432,7 @@
     </section>
     <!-- /.insurance section -->
 
-    <section class="transport section">
+    <section class="transport section" id="transport">
       <div class="container transport__container">
 
         <h2 class="section__title transport__title">Мы перевозим в следующие страны:</h2>
@@ -690,7 +689,7 @@
     </section>
     <!-- /.transport section -->
 
-    <section class="review section">
+    <section class="review section" id="review">
       <div class="container review__container">
 
         <h2 class="section__title review__title">Отзывы</h2>
@@ -757,13 +756,13 @@
     </section>
     <!-- /.review section -->
 
-    <section class="cost section">
+    <section class="cost section" id="cost">
       <div class="container cost__container">
 
         <h2 class="section__title cost__title">Узнайте стоимость Вашего переезда</h2>
         <!-- /.section__title cost__title -->
 
-        <form class="cost-form cost__form" action="#" method="POST">
+        <form class="cost-form cost__form" action="" method="POST">
 
           <fieldset class="cost-form__group">
 
@@ -1023,7 +1022,7 @@
 
   </main>
 
-  <footer class="footer">
+  <footer class="footer" id="footer">
     <div class="container">
       <div class="footer__wrap">
         <div class="footer__block">
@@ -1065,8 +1064,94 @@
   </footer>
   <!-- /.footer -->
 
+  <!-- модальные окна -->
+  <!-- заказать звонок -->
+    <div class="modal" data-modal="call">
+      <div class="modal__wrap">
+        <div class="modal__content">
+          <button class="modal__close js-close-modal"></button>
+          <form class="main-form modal-form" action="" method="POST">
+            <h2 class="modal__title">Заказать звонок</h2>
+            <!-- /.modal__title -->
+            <input class="input main-form__input modal-form__input" type="text" placeholder="Ваше имя" required>
+            <input class="input main-form__input modal-form__input" type="tel" placeholder="Ваш телефон" required>
+            <button class="main-form__button button_hover modal-form__button">Заказать звонок</button>
+            <div class="policy main__policy">
+              <input class="policy__checkbox" id="call-policy" type="checkbox" checked>
+              <label class="policy__label" for="call-policy"></label>
+              <span class="policy__text">Принимаю условия</span>
+              <a href="" class="policy__link">политики конфиденциальности</a>
+            </div>
+          </form>
+          <!-- /.main-form -->
+        </div>
+        <!-- /.modal__content -->
+      </div>
+      <!-- /.modal__wrap -->
+    </div>
+    <!-- /.modal -->
+
+  <!-- получить консультацию -->
+    <div class="modal" data-modal="consult">
+      <div class="modal__wrap">
+        <div class="modal__content">
+          <button class="modal__close js-close-modal"></button>
+          <form class="main-form modal-form" action="" method="POST">
+            <h2 class="modal__title">Получить консультацию</h2>
+            <!-- /.modal__title -->
+            <input class="input main-form__input modal-form__input" type="text" placeholder="Ваше имя" required>
+            <input class="input main-form__input modal-form__input" type="tel" placeholder="Ваш телефон" required>
+            <button class="main-form__button button_hover modal-form__button">Получить консультацию</button>
+            <div class="policy main__policy">
+              <input class="policy__checkbox" id="consult-policy" type="checkbox" checked>
+              <label class="policy__label" for="consult-policy"></label>
+              <span class="policy__text">Принимаю условия</span>
+              <a href="" class="policy__link">политики конфиденциальности</a>
+            </div>
+          </form>
+          <!-- /.main-form -->
+        </div>
+        <!-- /.modal__content -->
+      </div>
+      <!-- /.modal__wrap -->
+    </div>
+    <!-- /.modal -->
+
+  <!--   Спасибо -->
+    <div class="modal" data-modal="thanks">
+      <div class="modal__wrap">
+        <div class="modal__content">
+          <h2 class="modal__title">Спасибо за заявку!</h2>
+          <!-- /.modal__title -->
+          <button class="modal__close js-thanks-close"></button>
+            <p class="modal__text">Наш менеджер свяжется с Вами в течение 15 минут.</p>
+          <!-- /.modal-form -->
+        </div>
+        <!-- /.modal__content -->
+      </div>
+      <!-- /.modal__wrap -->
+    </div>
+    <!-- /.modal -->
+
+  <!--   Спасибо -->
+    <div class="modal" data-modal="thanks">
+      <div class="modal__wrap">
+        <div class="modal__content">
+          <h2 class="modal__title">Спасибо за заявку!</h2>
+          <!-- /.modal__title -->
+          <button class="modal__close js-thanks-close"></button>
+            <p class="modal__text">Наш менеджер свяжется с Вами в течение 60 минут.</p>
+          <!-- /.modal-form -->
+        </div>
+        <!-- /.modal__content -->
+      </div>
+      <!-- /.modal__wrap -->
+    </div>
+    <!-- /.modal -->
+
   <script src="js/jquery.min.v3.5.1.js"></script>
   <script src="js/slick.min.js"></script>
+  <script src="js/masked.input.min.js"></script>
   <script src="js/main.js"></script>
   </body>
 </html>

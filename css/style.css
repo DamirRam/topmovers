@@ -718,7 +718,6 @@ a:active {
 }
 .menu-block__item {
   height: 100%;
-  padding: 1.5rem;
   margin: 0;
   list-style-type: none;
   transition: all 0.3s;
@@ -729,6 +728,8 @@ a:active {
   transition: all 0.3s;
 }
 .menu-block__link {
+  display: inline-block;
+  padding: 1.5rem;
   text-transform: uppercase;
   color: inherit;
   font-family: "Proxima Nova Regular", sans-serif;
@@ -736,15 +737,13 @@ a:active {
 }
 
 @media (max-width: 1200px) {
-  .menu-block__item {
-    padding: 1.5rem 1rem;
-  }
   .menu-block__link {
+    padding: 1.5rem 1rem;
     font-size: 1.4rem;
   }
 }
 @media (max-width: 992px) {
-  .menu-block__item {
+  .menu-block__link {
     padding: 1.5rem 0.5rem;
   }
 }
@@ -759,7 +758,7 @@ a:active {
     padding-bottom: 2rem;
     flex-direction: column;
   }
-  .menu-block__item {
+  .menu-block__link {
     padding: 1.5rem;
   }
 }
@@ -815,6 +814,7 @@ a:active {
   padding: 2rem;
   background-color: rgba(0, 0, 0, 0.8);
   color: #ffffff;
+  font-size: 1.6rem;
 }
 .main-form__input {
   float: left;
@@ -1792,7 +1792,7 @@ a:active {
 .footer__img {
   margin-right: 1rem;
   margin-left: 1rem;
-  width: 5rem;
+  width: 13%;
 }
 .footer__contact {
   align-items: flex-end;
@@ -1817,6 +1817,96 @@ a:active {
   }
   .footer__contact {
     align-items: center;
+  }
+}
+/* Модальные окна */
+.modal {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.modal_active {
+  z-index: 999999999;
+  visibility: visible;
+}
+.modal__wrap {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  max-height: 100%;
+}
+.modal__content {
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 3rem;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.modal__title {
+  margin: 0;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  text-align: center;
+  color: #ffffff;
+}
+.modal__text {
+  font-size: 1.6rem;
+}
+.modal__close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  background-color: transparent;
+  transition: all 0.3s;
+}
+.modal__close:hover {
+  background-color: #ffffff;
+  transition: all 0.3s;
+}
+.modal__close::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 15px;
+  height: 15px;
+  background: url("../img/cross.svg") center no-repeat;
+}
+
+.modal-form {
+  width: 100%;
+  background-color: inherit;
+}
+.modal-form__input {
+  margin-bottom: 2rem;
+  float: none;
+  width: 100%;
+  border: 1px solid #000000;
+}
+.modal-form__button {
+  width: 100%;
+}
+
+@media (max-width: 420px) {
+  .modal__content {
+    padding: 0;
   }
 }
 

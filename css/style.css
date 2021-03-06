@@ -77,9 +77,9 @@ a:active {
   transition: all 0.3s;
 }
 .button:hover {
-  background-color: #2156c3;
-  color: #d9d9d9;
-  border-color: #2156c3;
+  background-color: #507fe1;
+  color: #ffffff;
+  border-color: #507fe1;
   transition: all 0.3s;
 }
 .button_hover:hover {
@@ -91,7 +91,9 @@ a:active {
 
 .input {
   padding: 1rem;
+  height: 42px;
   font-size: 1.6rem;
+  border: none;
 }
 
 .section {
@@ -141,12 +143,6 @@ a:active {
 
   .section__title {
     margin-bottom: 3rem;
-  }
-}
-@media (max-width: 550px) {
-  .input {
-    padding: 2rem 2rem;
-    height: 6rem;
   }
 }
 /* slick слайдер */
@@ -639,7 +635,7 @@ a:active {
   }
 
   .logo {
-    width: 70%;
+    width: 180px;
   }
   .logo__title {
     margin-right: auto;
@@ -782,19 +778,17 @@ a:active {
   color: #ffffff;
 }
 .main-form__input {
-  margin-right: -2px;
-  margin-left: -2px;
-  width: 23rem;
-  border-radius: 0px;
-  border: 1px solid #fff;
+  float: left;
+  width: 33.3%;
+  border-top: 1px solid rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
   border-right: 1px solid #000000;
 }
 .main-form__button {
   display: inline-block;
-  margin-right: -3px;
-  margin-left: -2px;
-  padding: 1rem;
+  margin-top: 1px;
   width: 23rem;
+  height: 40px;
   text-transform: none;
   color: #ffffff;
   background-color: #507fe1;
@@ -804,7 +798,6 @@ a:active {
 
 .policy__label {
   display: inline-block;
-  margin-left: -2px;
   width: 11px;
   height: 11px;
   border: none;
@@ -825,16 +818,6 @@ a:active {
   text-decoration: underline;
 }
 
-@media (max-width: 992px) {
-  .main-form__input {
-    margin-right: -2px;
-    margin-left: -1px;
-  }
-
-  .policy__label {
-    margin-left: -1px;
-  }
-}
 @media (max-width: 768px) {
   .main-form {
     width: 80%;
@@ -855,10 +838,6 @@ a:active {
     margin-right: auto;
     margin-left: auto;
     border-left-color: #507fe1;
-  }
-
-  .policy__label {
-    margin-left: 0;
   }
 }
 @media (max-width: 550px) {
@@ -891,6 +870,10 @@ a:active {
   }
 }
 @media (max-width: 420px) {
+  .main__title {
+    font-size: 3.5rem;
+  }
+
   .policy__link {
     display: block;
     margin-left: 1.7rem;
@@ -1372,6 +1355,7 @@ a:active {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 10;
   border: none;
   background-color: transparent;
 }
@@ -1414,6 +1398,23 @@ a:active {
   }
   .slider__prev-btn {
     left: -3.5rem;
+  }
+}
+@media (max-width: 420px) {
+  .slider {
+    width: 100%;
+  }
+  .slider__slide {
+    padding: 0.5rem;
+  }
+  .slider__img {
+    height: 30rem;
+  }
+  .slider__prev-btn {
+    left: 0;
+  }
+  .slider__next-btn {
+    right: 0;
   }
 }
 /* Страхование */
@@ -1531,9 +1532,10 @@ a:active {
 }
 /* Отзывы */
 .review {
+  padding-bottom: 22rem;
   background-color: #ffffff;
 }
-.review::after {
+.review::before {
   content: "";
   position: absolute;
   z-index: 1;
@@ -1546,6 +1548,19 @@ a:active {
   background-color: #ffffff;
   transform: skewY(-2deg);
 }
+.review::after {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  bottom: -120px;
+  left: 0;
+  right: 0;
+  display: block;
+  width: 100%;
+  height: 200px;
+  background-color: #ffffff;
+  transform: skewY(2deg);
+}
 .review__container {
   position: relative;
   top: 1rem;
@@ -1553,6 +1568,7 @@ a:active {
 
 .review-slider {
   font-size: 1.5rem;
+  margin-bottom: -18rem;
 }
 .review-slider__slide {
   padding: 2rem;
@@ -1597,6 +1613,171 @@ a:active {
 @media (max-width: 768px) {
   .review__container {
     top: 0;
+  }
+}
+/* Узнать стоимость */
+.cost {
+  padding-top: 18rem;
+  padding-bottom: 10rem;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+}
+.cost__title {
+  margin-top: 2rem;
+  color: #ffffff;
+}
+.cost__form {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cost-form {
+  width: 80%;
+}
+.cost-form__group {
+  margin-bottom: 2rem;
+  padding: 0;
+  border: none;
+}
+.cost-form__title {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+.cost-form__input {
+  width: 33.3%;
+  float: left;
+  border: none;
+  border-right: 1px solid #000000;
+}
+.cost-form__input:last-child {
+  border: none;
+}
+.cost-form__block {
+  margin-bottom: 2rem;
+  float: left;
+  width: 50%;
+}
+.cost-form__block-two {
+  width: 100%;
+  clear: both;
+}
+.cost-form__select {
+  display: block;
+  width: 100%;
+}
+.cost-form__select_border {
+  color: rgba(0, 0, 0, 0.7);
+  border-right: 1px solid #000000;
+}
+.cost-form__select option {
+  color: #000000;
+}
+.cost-form__select option:first-child {
+  color: rgba(0, 0, 0, 0.7);
+}
+.cost-form__select:first-child {
+  margin-bottom: 2rem;
+}
+.cost-form__textarea {
+  width: 100%;
+  overflow: hidden;
+  resize: none;
+}
+.cost-form__textarea:last-child {
+  margin-top: 2rem;
+}
+.cost-form__button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #507fe1;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 992px) {
+  .cost-form {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .cost-form {
+    width: 80%;
+  }
+  .cost-form__input {
+    width: 100%;
+    margin-bottom: 2rem;
+    float: none;
+    border: none;
+  }
+  .cost-form__block {
+    width: 100%;
+    float: none;
+  }
+}
+@media (max-width: 550px) {
+  .cost-form {
+    width: 100%;
+  }
+}
+/* Футер */
+.footer {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+.footer__wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.footer__block {
+  display: flex;
+  flex-basis: 33.3%;
+}
+.footer__block:first-child {
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.footer__block:nth-child(2) {
+  justify-content: center;
+}
+.footer__block:last-child {
+  justify-content: flex-end;
+}
+.footer__text {
+  margin-top: 1.3rem;
+}
+.footer__img {
+  margin-right: 1rem;
+  margin-left: 1rem;
+  width: 5rem;
+}
+.footer__contact {
+  align-items: flex-end;
+}
+.footer__cont {
+  margin-bottom: 1.3rem;
+}
+
+@media (max-width: 768px) {
+  .footer__wrap {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer__block {
+    margin-bottom: 3rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer__block:last-child {
+    margin-bottom: 0;
+  }
+  .footer__contact {
+    align-items: center;
   }
 }
 

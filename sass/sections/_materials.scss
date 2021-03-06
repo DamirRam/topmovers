@@ -76,6 +76,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 10;
     border: none;
     background-color: transparent;
   }
@@ -119,6 +120,23 @@
     }
     &__prev-btn {
       left: -3.5rem;
+    }
+  }
+}
+@media (max-width: 420px) {
+  .slider {
+    width: 100%;
+  &__slide {
+    padding: 0.5rem;
+  }
+  &__img {
+    height: 30rem;
+  }
+  &__prev-btn {
+    left: 0;
+  }
+  &__next-btn {
+    right: 0;
     }
   }
 }

@@ -36,9 +36,9 @@ a:active {
   color: $text-light;
   transition: all $transition-delay;
   &:hover {
-    background-color: darken($bg-main, 15%);
-    color: darken($text-light, 15%);
-    border-color: darken($bg-main, 15%);
+    background-color: $bg-main;
+    color: $text-light;
+    border-color: $bg-main;
     transition: all $transition-delay;
   }
   &_hover:hover {
@@ -51,7 +51,9 @@ a:active {
 
 .input {
   padding: 1rem;
+  height: 42px;
   font-size: 1.6rem;
+  border: none;
 }
 .section {
   position: relative;
@@ -94,15 +96,8 @@ a:active {
     padding-right: 10px;
   }
   .section {
-  &__title {
-    margin-bottom: 3rem;
-  }
+    &__title {
+      margin-bottom: 3rem;
+    }
 }
-}
-@media(max-width: 550px) {
-  .input {
-    padding: 2rem 2rem;
-    height: 6rem;
-  }
-
 }

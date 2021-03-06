@@ -1,6 +1,7 @@
 .review {
+  padding-bottom: 22rem;
   background-color: $bg-light;
-    &::after {
+    &::before {
     content: "";
     position: absolute;
     z-index: 1;
@@ -12,7 +13,20 @@
     height: 250px;
     background-color: $bg-light;
     transform: skewY(-2deg);
-  }
+    }
+    &::after {
+    content: "";
+    position: absolute;
+    z-index: 4;
+    bottom: -120px;
+    left: 0;
+    right: 0;
+    display: block;
+    width: 100%;
+    height: 200px;
+    background-color: #ffffff;
+    transform: skewY(2deg);
+    }
   &__container {
     position: relative;
     top: 1rem;
@@ -20,6 +34,7 @@
 }
 .review-slider {
   font-size: 1.5rem;
+  margin-bottom: -18rem;
   &__slide {
     padding: 2rem;
     &:focus {

@@ -40,8 +40,34 @@
     @include regular();
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .menu-block {
+    &__item {
+      padding: 1.5rem 1rem;
+    }
+    &__link {
+      font-size: 1.4rem;
+    }
+  }
+}
+@media (max-width: 992px) {
+  .menu-block {
+    &__item {
+      padding: 1.5rem 0.5rem;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .menu {
+    height: calc(100vh - 8rem);
+    overflow-y: auto;
+  }
+  .menu-block {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     flex-direction: column;
+    &__item {
+      padding: 1.5rem;
+    }
   }
 }

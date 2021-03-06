@@ -27,6 +27,9 @@
   border: none;
   background-color: transparent;
   transition: all $transition-delay;
+  &_active {
+    background-color: $bg-main;
+  }
   &:hover {
     background-color: $bg-main;
     transition: all $transition-delay;
@@ -35,7 +38,6 @@
       transition: all $transition-delay;
     }
   }
-
   @mixin menu-btn__line(){
     position: absolute;
 
@@ -64,6 +66,19 @@
 
       content: "";
       bottom: 7px;
+    }
+  }
+  &__line_active {
+    background-color: transparent !important;
+    &::before {
+      bottom: 0;
+      transform: rotate(45deg);
+      background-color: $bg-light;
+    }
+    &::after {
+      top: 0;
+      transform: rotate(-45deg);
+      background-color: $bg-light;
     }
   }
 }

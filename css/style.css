@@ -420,6 +420,9 @@ a:active {
   background-color: transparent;
   transition: all 0.3s;
 }
+.menu-btn_active {
+  background-color: #507fe1;
+}
 .menu-btn:hover {
   background-color: #507fe1;
   transition: all 0.3s;
@@ -461,6 +464,19 @@ a:active {
   transition: all 0.3s;
   content: "";
   bottom: 7px;
+}
+.menu-btn__line_active {
+  background-color: transparent !important;
+}
+.menu-btn__line_active::before {
+  bottom: 0;
+  transform: rotate(45deg);
+  background-color: #ffffff;
+}
+.menu-btn__line_active::after {
+  top: 0;
+  transform: rotate(-45deg);
+  background-color: #ffffff;
 }
 
 .logo {
@@ -719,9 +735,32 @@ a:active {
   font-weight: normal;
 }
 
+@media (max-width: 1200px) {
+  .menu-block__item {
+    padding: 1.5rem 1rem;
+  }
+  .menu-block__link {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 992px) {
+  .menu-block__item {
+    padding: 1.5rem 0.5rem;
+  }
+}
 @media (max-width: 768px) {
+  .menu {
+    height: calc(100vh - 8rem);
+    overflow-y: auto;
+  }
+
   .menu-block {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     flex-direction: column;
+  }
+  .menu-block__item {
+    padding: 1.5rem;
   }
 }
 /* Главный экран */

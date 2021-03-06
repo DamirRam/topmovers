@@ -10,6 +10,8 @@ $(document).ready(function() {
   let menuBtn = document.querySelector(".menu-btn-js");
   menuBtn.onclick= function () {
     document.querySelector(".menu").classList.toggle("menu_active");
+    menuBtn.firstElementChild.classList.toggle("menu-btn__line_active");
+    menuBtn.classList.toggle("menu-btn_active");
   }
 
   

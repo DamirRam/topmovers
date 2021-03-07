@@ -33,6 +33,14 @@ $(document).ready(function() {
     nextArrow: '<button type="button" class="slider__btn slider__next-btn"><img src="img/right-arrow.svg" alt="Вперед" /></button>'
   });
 
+  // отключение анимации кнопки internet explorer
+  let buttons = document.querySelectorAll("button");
+  for(let i=0; i<buttons.length; i++) {
+    buttons[i].addEventListener("mousedown", function (event){
+    event.preventDefault();
+  });//end addEventListener
+  }//end for
+
   //модальные окна
   //отключение прокрутки при всплытии модального окна
   const body   = document.body;
@@ -143,15 +151,85 @@ let animClose = throttle(function animationClose (time, modalObj) {
     });//end addEventListener
   };
 
-  // отключение анимации кнопки internet explorer
-  let buttons = document.querySelectorAll("button");
-  for(let i=0; i<buttons.length; i++) {
-    buttons[i].addEventListener("mousedown", function (event){
-    event.preventDefault();
-  });//end addEventListener
-  }//end for
+  //стилизация тега select
+  if ("ontouchstart" in document.documentElement&&screen.width<=768) {
+  }else{
+    let select     = document.querySelectorAll("select");
 
+    for(let i=0;i<select.length;i++) {
+        selectStyle(select[i]);
+    }
 
+    function selectStyle(select) {
+      let option     = select.children;
+      let divText    = document.createElement("span");
+      let divSelect  = document.createElement("div");
+      let divOptWrap = document.createElement("div");
+      let divTextColor = window.getComputedStyle(select, null).getPropertyValue("color");
+      let optionTextColor = window.getComputedStyle(select.lastElementChild, null).getPropertyValue("color");
+
+      select.style.display="none";
+
+      divSelect.setAttribute("class", select.getAttribute("class")+" select");
+      divOptWrap.setAttribute("class", "select__wrap");
+      divText.setAttribute("class","select__text");
+      for(i=0;i<option.length;i++){
+        if(option[i].hasAttribute("selected")){
+          divText.innerHTML=option[i].innerHTML;
+        }else{
+          divText.innerHTML=option[0].innerHTML;
+        }
+        let spanOption = document.createElement("span");
+        spanOption.setAttribute("class", "select__option");
+        spanOption.innerHTML = option[i].innerHTML;
+        if(i===0) {
+          spanOption.setAttribute("data-option","first");
+        }
+        divOptWrap.appendChild(spanOption);
+      }
+      divSelect.appendChild(divText);
+      divSelect.appendChild(divOptWrap);
+      select.parentNode.appendChild(divSelect);
+
+      divSelect.onclick=function(){
+        let coordinats   = divSelect.getBoundingClientRect();
+        let top          = coordinats.top;
+        let bottom       = window.innerHeight-(coordinats.bottom-coordinats.top+coordinats.top);
+        let headerHeight = document.querySelector(".js-header").offsetHeight;
+        bottom = Number(bottom.toFixed(0));
+        top    = Number(top.toFixed(0));
+        if(top>=bottom) {
+          divOptWrap.style.top = "";
+          divOptWrap.style.bottom = coordinats.bottom-coordinats.top+1+"px";
+
+          if(top-headerHeight-20>320){
+            divOptWrap.style.height="320px";
+          }else{
+            divOptWrap.style.height = top-headerHeight-20+"px";
+          }
+
+        }else {
+          divOptWrap.style.bottom = "";
+          divOptWrap.style.top = coordinats.bottom-coordinats.top+1+"px";
+          divOptWrap.style.height = bottom-20+"px";
+        }
+        divOptWrap.classList.toggle("select__wrap_active");
+        if(!divOptWrap.classList.contains("select__wrap_active")){
+          divOptWrap.style.height= "0px";
+        }
+        divSelect.classList.toggle("on");
+      };
+      divOptWrap.onclick=function(e){
+        divText.innerHTML=e.target.innerHTML;
+        select.value=e.target.innerHTML;
+        if(e.target.hasAttribute("data-option", "first")){
+          divText.style.color= divTextColor;
+        }else {
+          divText.style.color= optionTextColor;
+        }
+      };
+    }
+  }
 
   let textarea=document.querySelector(".js-textarea");
 

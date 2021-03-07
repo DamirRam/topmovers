@@ -304,11 +304,24 @@ let animClose = throttle(function animationClose (time, modalObj) {
   function ajaxPost(params, form) {
     let request = new XMLHttpRequest ();
 
+    let button          = form.querySelector("button");
+    let buttonText      = button.innerHTML;
+
+    button.innerHTML="отправка..."
     request.onreadystatechange = function () {
       if(request.readyState == 4 && request.status ==200) {
+
+      if(form.classList.contains("modal-form") === true) {
+      let modal = form.closest(".modal");
+      animClose(modalAnimationTime, modal);
+      scroll(form.closest(".modal"));
+      }
+
       let modal   = document.querySelector(".modal[data-modal='thanks']");
       animOpen(modalAnimationTime, modal);
       noScroll(modal);
+
+      button.innerHTML = buttonText;
       
       form.querySelector("input[name=user_name]").value = "";
       form.querySelector("input[name=user_phone]").value = "";
@@ -322,6 +335,13 @@ let animClose = throttle(function animationClose (time, modalObj) {
         weight      = form.querySelector("input[name=weight]").value = "";
         userComment = form.querySelector("textarea[name=user_comment]").value = "";
         }
+      }else {
+        button.innerHTML = "ошибка отправки";
+        button.classList.add("button_error");
+        setTimeout(function (){
+        button.innerHTML = buttonText;
+        button.classList.remove("button_error");
+        }, 1500);
       }
     }
 
@@ -368,11 +388,6 @@ let animClose = throttle(function animationClose (time, modalObj) {
 
     ajaxPost(params, form);
 
-    if(form.classList.contains("modal-form") === true) {
-    let modal = form.closest(".modal");
-    animClose(modalAnimationTime, modal);
-    scroll(form.closest(".modal"));
-    }
   }
 
 });

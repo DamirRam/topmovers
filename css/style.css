@@ -83,6 +83,13 @@ a:active {
   border-color: #507fe1;
   transition: all 0.3s;
 }
+.button_error {
+  background-color: red !important;
+  border-color: red !important;
+}
+.button_error:hover {
+  color: #ffffff !important;
+}
 .button_hover:hover {
   background-color: #000000;
   color: #507fe1;

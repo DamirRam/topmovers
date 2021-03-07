@@ -42,6 +42,13 @@ a:active {
     border-color: $bg-main;
     transition: all $transition-delay;
   }
+  &_error {
+    background-color: red !important;
+    border-color: red !important;
+    &:hover {
+      color: $text-light !important;
+    }
+  }
   &_hover:hover {
     background-color: $bg-dark;
     color: $text-main;

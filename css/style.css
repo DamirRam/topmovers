@@ -43,6 +43,7 @@ body {
   font-family: "Proxima Nova Regular", sans-serif;
   font-weight: 300;
   color: #000000;
+  overflow-x: hidden;
 }
 
 a, button, input, textarea, select {
@@ -90,10 +91,14 @@ a:active {
 }
 
 .input {
+  position: relative;
   padding: 1rem;
   height: 42px;
   font-size: 1.6rem;
   border: none;
+}
+.input_error {
+  border: 1px solid red !important;
 }
 
 .section {
@@ -1926,6 +1931,8 @@ a:active {
 }
 .modal__text {
   font-size: 1.6rem;
+  text-align: center;
+  color: #ffffff;
 }
 .modal__close {
   position: absolute;

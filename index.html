@@ -129,9 +129,9 @@
             <span class="main__subtitle">Выполняем переезды в 70+ стран из России и обратно</span>
           </div>
 
-          <form class="main-form" action="" method="POST">
-            <input class="input main-form__input" type="text" placeholder="Ваше имя" required>
-            <input class="input main-form__input" type="tel" placeholder="Ваш телефон" required>
+          <form class="main-form" action="mailer/mail.php" method="POST">
+            <input class="input main-form__input" type="text" placeholder="Ваше имя" name="user_name" required>
+            <input class="input main-form__input" type="tel" placeholder="Ваш телефон" name="user_phone" required>
             <button class="main-form__button button_hover">Получить консультацию</button>
             <div class="policy main__policy">
               <input class="policy__checkbox" id="policy" type="checkbox" checked>
@@ -762,7 +762,7 @@
         <h2 class="section__title cost__title">Узнайте стоимость Вашего переезда</h2>
         <!-- /.section__title cost__title -->
 
-        <form class="cost-form cost__form" action="" method="POST">
+        <form class="cost-form cost__form js-cost-form" action="mailer/mail.php" method="POST">
 
           <fieldset class="cost-form__group">
 
@@ -780,7 +780,7 @@
             <!-- /.cost-form__title -->
 
             <div class="cost-form__block">
-              <select class="cost-form__select cost-form__select_border input" name="country_from" required>
+              <select class="cost-form__select cost-form__select_border input js-select-one" name="country_from" required>
                 <option value="" selected disabled>Страна отправления</option>
                 <option value="Австралия">Австралия</option>
                 <option value="Австрия">Австрия</option>
@@ -889,7 +889,7 @@
                 <option value="ЮАР">ЮАР</option>
                 <option value="Южная Корея">Южная Корея</option>
               </select>
-              <select class="cost-form__select cost-form__select_border input" name="country_to" required>
+              <select class="cost-form__select cost-form__select_border input js-select-two" name="country_to" required>
                 <option value="" selected disabled>Страна назначения</option>
                 <option value="Австралия">Австралия</option>
                 <option value="Австрия">Австрия</option>
@@ -1070,11 +1070,11 @@
       <div class="modal__wrap">
         <div class="modal__content">
           <button class="modal__close js-close-modal"></button>
-          <form class="main-form modal-form" action="" method="POST">
+          <form class="main-form modal-form" action="mailer/mail.php" method="POST">
             <h2 class="modal__title">Заказать звонок</h2>
             <!-- /.modal__title -->
-            <input class="input main-form__input modal-form__input" type="text" placeholder="Ваше имя" required>
-            <input class="input main-form__input modal-form__input" type="tel" placeholder="Ваш телефон" required>
+            <input class="input main-form__input modal-form__input" type="text" placeholder="Ваше имя" name="user_name" required>
+            <input class="input main-form__input modal-form__input" type="tel" placeholder="Ваш телефон" name="user_phone" required>
             <button class="main-form__button button_hover modal-form__button">Заказать звонок</button>
             <div class="policy main__policy">
               <input class="policy__checkbox" id="call-policy" type="checkbox" checked>
@@ -1096,11 +1096,11 @@
       <div class="modal__wrap">
         <div class="modal__content">
           <button class="modal__close js-close-modal"></button>
-          <form class="main-form modal-form" action="" method="POST">
+          <form class="main-form modal-form" action="mailer/mail.php" method="POST">
             <h2 class="modal__title">Получить консультацию</h2>
             <!-- /.modal__title -->
-            <input class="input main-form__input modal-form__input" type="text" placeholder="Ваше имя" required>
-            <input class="input main-form__input modal-form__input" type="tel" placeholder="Ваш телефон" required>
+            <input class="input main-form__input modal-form__input" type="text" placeholder="Ваше имя" name="user_name" required>
+            <input class="input main-form__input modal-form__input" type="tel" placeholder="Ваш телефон" name="user_phone" required>
             <button class="main-form__button button_hover modal-form__button">Получить консультацию</button>
             <div class="policy main__policy">
               <input class="policy__checkbox" id="consult-policy" type="checkbox" checked>
@@ -1123,23 +1123,7 @@
         <div class="modal__content">
           <h2 class="modal__title">Спасибо за заявку!</h2>
           <!-- /.modal__title -->
-          <button class="modal__close js-thanks-close"></button>
-            <p class="modal__text">Наш менеджер свяжется с Вами в течение 15 минут.</p>
-          <!-- /.modal-form -->
-        </div>
-        <!-- /.modal__content -->
-      </div>
-      <!-- /.modal__wrap -->
-    </div>
-    <!-- /.modal -->
-
-  <!--   Спасибо -->
-    <div class="modal" data-modal="thanks">
-      <div class="modal__wrap">
-        <div class="modal__content">
-          <h2 class="modal__title">Спасибо за заявку!</h2>
-          <!-- /.modal__title -->
-          <button class="modal__close js-thanks-close"></button>
+          <button class="modal__close js-close-modal"></button>
             <p class="modal__text">Наш менеджер свяжется с Вами в течение 60 минут.</p>
           <!-- /.modal-form -->
         </div>

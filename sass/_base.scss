@@ -8,6 +8,7 @@ html {
 body {
   @include regular(300);
   color: $text-dark;
+  overflow-x: hidden;
 }
 a, button, input, textarea, select {
   outline: none;
@@ -50,10 +51,14 @@ a:active {
 }
 
 .input {
+  position: relative;
   padding: 1rem;
   height: 42px;
   font-size: 1.6rem;
   border: none;
+  &_error {
+    border: 1px solid red !important;
+  }
 }
 .section {
   position: relative;

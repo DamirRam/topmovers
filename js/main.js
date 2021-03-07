@@ -41,6 +41,15 @@ $(document).ready(function() {
   });//end addEventListener
   }//end for
 
+  //увеличение высоты textarea при заполнении текстом
+  let textarea=document.querySelector(".js-textarea");
+
+  textarea.addEventListener('keyup', function(){
+    if(this.scrollTop > 0){
+      this.style.height = this.scrollHeight + "px";
+    }
+  });
+
   //модальные окна
   //отключение прокрутки при всплытии модального окна
   const body   = document.body;
@@ -84,7 +93,7 @@ $(document).ready(function() {
     };
 };
 
-  //открытие и закрытие модальных окон
+  //открытие и закрытие модальных окон, анимация
   let openBtns   = document.querySelectorAll(".js-open-modal");
   let closeBtns  = document.querySelectorAll(".js-close-modal");
   let closeModal = document.querySelectorAll(".modal");
@@ -231,11 +240,139 @@ let animClose = throttle(function animationClose (time, modalObj) {
     }
   }
 
-  let textarea=document.querySelector(".js-textarea");
+  //валидация данных формы
+  function validateForm (event) {
+    let inputs    = event.target.querySelectorAll("[required]");
 
-  textarea.addEventListener('keyup', function(){
-    if(this.scrollTop > 0){
-      this.style.height = this.scrollHeight + "px";
+    for(let i=0; i<inputs.length; i++) {
+
+      if(inputs[i].value === "") {
+
+        inputs[i].addEventListener ("change", function changeInput(event) {
+        inputs[i].removeEventListener("change", changeInput);
+          if(event.target.classList.contains("input_error")) {
+            event.target.classList.remove("input_error");
+          }
+        });
+
+        inputs[i].classList.add("input_error");
+        if(inputs[i].classList.contains("js-select-one")) {
+
+          let divSelect  = event.target.querySelector("div.js-select-one");
+          let selectWrap = divSelect.querySelector(".select__wrap");
+
+          divSelect.classList.add("input_error");
+
+          selectWrap.addEventListener("click", function click(event) {
+
+            if(event.target.hasAttribute("data-option","first")) {
+            }else {
+              selectWrap.removeEventListener("click", click);
+              if(divSelect.classList.contains("input_error")) {
+                divSelect.classList.remove("input_error");
+              }
+            }
+          });
+        }
+        if(inputs[i].classList.contains("js-select-two")) {
+          let divSelect = event.target.querySelector("div.js-select-two");
+          let selectWrap = divSelect.querySelector(".select__wrap");
+
+          divSelect.classList.add("input_error");
+
+          selectWrap.addEventListener("click", function click(event) {
+            if(event.target.hasAttribute("data-option","first")) {
+            }else {
+              selectWrap.removeEventListener("click", click);
+              if(divSelect.classList.contains("input_error")) {
+                divSelect.classList.remove("input_error");
+              }
+            }
+          });
+        }
+      }
     }
-  });
+    for(let i=0;i<inputs.length;i++) {
+      if(inputs[i].value===""){
+        return false;
+      }
+    }
+    ajaxPostHelp(event);
+  }
+
+  //отправка форм на сервер
+  function ajaxPost(params, form) {
+    let request = new XMLHttpRequest ();
+
+    request.onreadystatechange = function () {
+      if(request.readyState == 4 && request.status ==200) {
+      let modal   = document.querySelector(".modal[data-modal='thanks']");
+      animOpen(modalAnimationTime, modal);
+      noScroll(modal);
+      
+      form.querySelector("input[name=user_name]").value = "";
+      form.querySelector("input[name=user_phone]").value = "";
+
+      if (form.classList.contains("js-cost-form") === true) {
+        userEmail   = form.querySelector("input[name=user_email]").value = "";
+        countryFrom = form.querySelector("select[name=country_from]").value = "";
+        countryTo    = form.querySelector("select[name=country_to]").value = "";
+        townFrom    = form.querySelector("input[name=town_from]").value = "";
+        townTo      = form.querySelector("input[name=town_to]").value = "";
+        weight      = form.querySelector("input[name=weight]").value = "";
+        userComment = form.querySelector("textarea[name=user_comment]").value = "";
+        }
+      }
+    }
+
+    request.open("POST" ,"mailer/mail.php");
+    request.setRequestHeader("Content-Type" ,"application/x-www-form-urlencoded");
+    request.send(params);
+  }//end ajaxPost function
+
+  let forms = document.querySelectorAll("form");
+  for(let i=0; i<forms.length; i++) {
+    forms[i].setAttribute("novalidate","");
+    forms[i].addEventListener("submit", function (event) {
+      event.preventDefault();
+      validateForm(event);
+    });//end addEventListener
+    }//end for
+
+  function ajaxPostHelp(event) {
+    let form        = event.target;
+    let userName    = form.querySelector("input[name=user_name]").value;
+    let userPhone   = form.querySelector("input[name=user_phone]").value;
+    let userEmail   = "";
+    let countryFrom = "";
+    let countryTo   = "";
+    let townFrom    = "";
+    let townTo      = "";
+    let weight      = "";
+    let userComment = "";
+    let params      = "";
+
+    if (form.classList.contains("js-cost-form") === true) {
+      userEmail   = form.querySelector("input[name=user_email]").value;
+      countryFrom = form.querySelector("select[name=country_from]").value;
+      countryTo    = form.querySelector("select[name=country_to]").value;
+      townFrom    = form.querySelector("input[name=town_from]").value;
+      townTo      = form.querySelector("input[name=town_to]").value;
+      weight      = form.querySelector("input[name=weight]").value;
+      userComment = form.querySelector("textarea[name=user_comment]").value;
+    }
+
+    params = "user_name="+userName+"&"+"user_phone="+userPhone+"&"+"user_email="+userEmail
+    +"&"+"country_from="+countryFrom+"&"+"country_to="+countryTo+"&"+"town_from="+townFrom
+    +"&"+"town_to="+townTo+"&"+"weight="+weight+"&"+"user_comment="+userComment;
+
+    ajaxPost(params, form);
+
+    if(form.classList.contains("modal-form") === true) {
+    let modal = form.closest(".modal");
+    animClose(modalAnimationTime, modal);
+    scroll(form.closest(".modal"));
+    }
+  }
+
 });

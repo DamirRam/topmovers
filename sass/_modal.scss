@@ -43,6 +43,8 @@
   }
   &__text {
     font-size: 1.6rem;
+    text-align: center;
+    color: $text-light;
   }
   &__close {
     position: absolute;

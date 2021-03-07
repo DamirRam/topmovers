@@ -50,6 +50,9 @@ $(document).ready(function() {
     }
   });
 
+  //wow.js
+  new WOW().init();
+
   //модальные окна
   //отключение прокрутки при всплытии модального окна
   const body   = document.body;

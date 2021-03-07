@@ -229,18 +229,24 @@ let animClose = throttle(function animationClose (time, modalObj) {
         divSelect.classList.toggle("on");
       };
       divOptWrap.onclick=function(e){
-        divText.innerHTML=e.target.innerHTML;
-        select.value=e.target.innerHTML;
-        if(e.target.hasAttribute("data-option", "first")){
-          divText.style.color= divTextColor;
-        }else {
-          divText.style.color= optionTextColor;
+        if(e.target === divOptWrap) {
+          divText.innerHTML = divOptWrap.firstElementChild.innerHTML;
+          divText.style.color = divTextColor;
+        } else {
+          divText.innerHTML = e.target.innerHTML;
+            select.value    = e.target.innerHTML;
+          if(e.target.hasAttribute("data-option", "first")){
+            divText.style.color = divTextColor;
+          } else {
+            divText.style.color = optionTextColor;
+          }
         }
-      };
+      }
     }
   }
 
   //валидация данных формы
+  let requestStatus = false;
   function validateForm (event) {
     let inputs    = event.target.querySelectorAll("[required]");
 
@@ -297,7 +303,10 @@ let animClose = throttle(function animationClose (time, modalObj) {
         return false;
       }
     }
-    ajaxPostHelp(event);
+    if(requestStatus === false) {
+      ajaxPostHelp(event);
+      requestStatus = true;
+    }
   }
 
   //отправка форм на сервер
@@ -317,9 +326,11 @@ let animClose = throttle(function animationClose (time, modalObj) {
       scroll(form.closest(".modal"));
       }
 
-      let modal   = document.querySelector(".modal[data-modal='thanks']");
-      animOpen(modalAnimationTime, modal);
-      noScroll(modal);
+      setTimeout(function () {
+        let modal   = document.querySelector(".modal[data-modal='thanks']");
+        animOpen(modalAnimationTime, modal);
+        noScroll(modal);
+      },500);
 
       button.innerHTML = buttonText;
       
@@ -335,13 +346,18 @@ let animClose = throttle(function animationClose (time, modalObj) {
         weight      = form.querySelector("input[name=weight]").value = "";
         userComment = form.querySelector("textarea[name=user_comment]").value = "";
         }
-      }else {
-        button.innerHTML = "ошибка отправки";
-        button.classList.add("button_error");
-        setTimeout(function (){
-        button.innerHTML = buttonText;
-        button.classList.remove("button_error");
-        }, 1500);
+        requestStatus = false;
+      }
+      request.onerror = function () {
+        if (request.status != 200) {
+          button.innerHTML = "ошибка отправки";
+          button.classList.add("button_error");
+          setTimeout(function (){
+          button.innerHTML = buttonText;
+          button.classList.remove("button_error");
+          requestStatus = false;
+          }, 1500);
+        }
       }
     }
 
@@ -353,12 +369,14 @@ let animClose = throttle(function animationClose (time, modalObj) {
   let forms = document.querySelectorAll("form");
   for(let i=0; i<forms.length; i++) {
     forms[i].setAttribute("novalidate","");
-    forms[i].addEventListener("submit", function (event) {
+    forms[i].addEventListener("submit", function formSubmit(event) {
       event.preventDefault();
+
       validateForm(event);
     });//end addEventListener
     }//end for
 
+  //получение данных из формы для отправки
   function ajaxPostHelp(event) {
     let form        = event.target;
     let userName    = form.querySelector("input[name=user_name]").value;
@@ -389,5 +407,4 @@ let animClose = throttle(function animationClose (time, modalObj) {
     ajaxPost(params, form);
 
   }
-
 });

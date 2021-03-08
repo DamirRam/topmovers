@@ -32,7 +32,10 @@
     padding: 3rem;
     width: 100%;
     height: 100%;
-    background-color: rgba($bg-dark, 0.8);;
+    background-color: rgba($bg-dark, 0.8);
+  }
+  &__thanks {
+    background-color: rgba($bg-dark, 0.9);
   }
   &__title {
     margin: 0;
@@ -89,6 +92,9 @@
   .modal {
     &__content {
       padding: 0;
+    }
+    &__thanks {
+      padding: 2rem;
     }
   }
 }

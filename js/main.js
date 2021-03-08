@@ -255,7 +255,7 @@ let animClose = throttle(function animationClose (time, modalObj) {
 
     for(let i=0; i<inputs.length; i++) {
 
-      if(inputs[i].value === "") {
+      if(inputs[i].value === ""||inputs[i].value === "+7(___) ___-__-__") {
 
         inputs[i].addEventListener ("change", function changeInput(event) {
         inputs[i].removeEventListener("change", changeInput);
@@ -302,7 +302,8 @@ let animClose = throttle(function animationClose (time, modalObj) {
       }
     }
     for(let i=0;i<inputs.length;i++) {
-      if(inputs[i].value===""){
+      if(inputs[i].value===""||inputs[i].value === "+7(___) ___-__-__"){
+
         return false;
       }
     }

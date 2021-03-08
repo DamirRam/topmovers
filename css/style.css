@@ -781,7 +781,7 @@ a:active {
 
 .main {
   position: relative;
-  padding: 5rem 0 21rem 0;
+  padding: 5rem 0 25rem 0;
   font-size: 1.6rem;
   background: url(../img/main/main.png) center no-repeat;
   background-size: cover;
@@ -1929,6 +1929,9 @@ a:active {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
 }
+.modal__thanks {
+  background-color: rgba(0, 0, 0, 0.9);
+}
 .modal__title {
   margin: 0;
   margin-bottom: 2rem;
@@ -1984,6 +1987,9 @@ a:active {
 @media (max-width: 420px) {
   .modal__content {
     padding: 0;
+  }
+  .modal__thanks {
+    padding: 2rem;
   }
 }
 

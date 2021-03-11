@@ -371,8 +371,25 @@ let animClose = throttle(function animationClose (time, modalObj) {
         window.removeEventListener("resize", changeLeftTop, false);
         }, false);
 
+      }
+      if(object.tagName == "SELECT"&&object.hasAttribute("data-select")) {
+        if(window.getComputedStyle(object, null).getPropertyValue("display") !== "none") {
+          object.addEventListener("change", function removeErrorClass(){
+
+          errorMessageStatus[index] = false;
+
+          if(object.classList.contains("input_error")){
+            object.classList.remove("input_error");
+          };
+
+          spanParent.removeChild(span);
+
+          object.removeEventListener("change", removeErrorClass, false);
+          window.removeEventListener("resize", changeLeftTop, false);
+          }, false);
+        }
       } else {
-        object.addEventListener("keydown", function removeErrorClass(){
+        object.addEventListener("keydown", function removeErrorClass() {
 
         errorMessageStatus[index] = false;
 

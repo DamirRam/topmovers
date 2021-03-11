@@ -71,7 +71,7 @@ a:active {
     max-width: 28rem;
 
     font-size: 1.5rem;
-    @include regular(600);
+    @include regular(300);
     letter-spacing: 1px;
 
     color: $text-error;

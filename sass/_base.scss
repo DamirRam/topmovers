@@ -49,6 +49,13 @@ a:active {
       color: $text-light !important;
     }
   }
+  &_policy-error {
+    background-color: rgba($bg-main, 0.5) !important;
+    border-color: rgba($bg-main, 0.5) !important;
+    &:hover {
+      color: $text-light !important;
+    }
+  }
   &_hover:hover {
     background-color: $bg-dark;
     color: $text-main;

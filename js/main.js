@@ -166,7 +166,7 @@ let animClose = throttle(function animationClose (time, modalObj) {
   //стилизация тега select
   if ("ontouchstart" in document.documentElement&&screen.width<=768) {
   }else{
-    let select     = document.querySelectorAll("select");
+    let select = document.querySelectorAll("select");
 
     for(let i=0;i<select.length;i++) {
         selectStyle(select[i]);
@@ -299,6 +299,39 @@ let animClose = throttle(function animationClose (time, modalObj) {
           if(inputs[i].value == "") {
             errorMessage(inputs[i], "Заполните это поле!", i);
           }
+        }
+      //проверка сheckbox политики конфиденциальности
+        if("checkbox" == inputs[i].getAttribute("type") && inputs[i].classList.contains("policy__checkbox")) {
+
+          let button = event.target.querySelector("button");
+
+          if(errorMessageStatus[i+1] === undefined) {
+            errorMessageStatus[i] = false;
+            errorMessageStatus[i+1] = 0;
+
+            if(!inputs[i].checked) {
+              errorMessageStatus[i] = true;
+
+              button.classList.add("button_policy-error");
+            }
+            inputs[i].addEventListener("change", policyCheck, false);
+
+            function policyCheck () {
+
+              if(!inputs[i].checked) {
+                errorMessageStatus[i] = true;
+
+                button.classList.add("button_policy-error");
+              }
+              else {
+                errorMessageStatus[i] = false;
+
+                if(button.classList.contains("button_policy-error")) {
+                button.classList.remove("button_policy-error");
+                }//end if
+              }//end else
+            }// end policyCheck
+          }// errorMessageStatus
         }
       }//end if
       //проверка select
@@ -517,6 +550,6 @@ let animClose = throttle(function animationClose (time, modalObj) {
         }, 50);
       }, false);
     }
-  }//end ajaxPost function
+  }//end ajaxPost
 
 });

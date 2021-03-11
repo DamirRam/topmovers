@@ -183,6 +183,7 @@ let animClose = throttle(function animationClose (time, modalObj) {
       select.style.display="none";
 
       divSelect.setAttribute("class", select.getAttribute("class")+" select");
+      divSelect.setAttribute("data-select", select.getAttribute("data-select"));
       divOptWrap.setAttribute("class", "select__wrap");
       divText.setAttribute("class","select__text");
       for(i=0;i<option.length;i++){
@@ -248,137 +249,152 @@ let animClose = throttle(function animationClose (time, modalObj) {
     }
   }
 
-  //валидация данных формы
-  let requestStatus = false;
-  function validateForm (event) {
-    let inputs    = event.target.querySelectorAll("[required]");
+  //получение всех форм на сайте
+  let forms              = document.querySelectorAll("form");
+  let requestStatus      = false;
 
-    for(let i=0; i<inputs.length; i++) {
-
-      if(inputs[i].value === ""||inputs[i].value === "+7(___) ___-__-__") {
-
-        inputs[i].addEventListener ("change", function changeInput(event) {
-        inputs[i].removeEventListener("change", changeInput);
-          if(event.target.classList.contains("input_error")) {
-            event.target.classList.remove("input_error");
-          }
-        });
-
-        inputs[i].classList.add("input_error");
-        if(inputs[i].classList.contains("js-select-one")) {
-
-          let divSelect  = event.target.querySelector("div.js-select-one");
-          let selectWrap = divSelect.querySelector(".select__wrap");
-
-          divSelect.classList.add("input_error");
-
-          selectWrap.addEventListener("click", function click(event) {
-
-            if(event.target.hasAttribute("data-option","first")) {
-            }else {
-              selectWrap.removeEventListener("click", click);
-              if(divSelect.classList.contains("input_error")) {
-                divSelect.classList.remove("input_error");
-              }
-            }
-          });
-        }
-        if(inputs[i].classList.contains("js-select-two")) {
-          let divSelect = event.target.querySelector("div.js-select-two");
-          let selectWrap = divSelect.querySelector(".select__wrap");
-
-          divSelect.classList.add("input_error");
-
-          selectWrap.addEventListener("click", function click(event) {
-            if(event.target.hasAttribute("data-option","first")) {
-            }else {
-              selectWrap.removeEventListener("click", click);
-              if(divSelect.classList.contains("input_error")) {
-                divSelect.classList.remove("input_error");
-              }
-            }
-          });
-        }
-      }
-    }
-    for(let i=0;i<inputs.length;i++) {
-      if(inputs[i].value===""||inputs[i].value === "+7(___) ___-__-__"){
-
-        return false;
-      }
-    }
-    if(requestStatus === false) {
-      ajaxPostHelp(event);
-      requestStatus = true;
-    }
-  }
-
-  //отправка форм на сервер
-  function ajaxPost(params, form) {
-    let request = new XMLHttpRequest ();
-
-    let button          = form.querySelector("button");
-    let buttonText      = button.innerHTML;
-
-    button.innerHTML="отправка..."
-    request.onreadystatechange = function () {
-      if(request.readyState == 4 && request.status ==200) {
-
-      if(form.classList.contains("modal-form") === true) {
-      let modal = form.closest(".modal");
-      animClose(modalAnimationTime, modal);
-      scroll(form.closest(".modal"));
-      }
-
-      setTimeout(function () {
-        let modal   = document.querySelector(".modal[data-modal='thanks']");
-        animOpen(modalAnimationTime, modal);
-        noScroll(modal);
-      },500);
-
-      button.innerHTML = buttonText;
-      
-      form.querySelector("input[name=user_name]").value = "";
-      form.querySelector("input[name=user_phone]").value = "";
-
-      if (form.classList.contains("js-cost-form") === true) {
-        userEmail   = form.querySelector("input[name=user_email]").value = "";
-        countryFrom = form.querySelector("select[name=country_from]").value = "";
-        countryTo    = form.querySelector("select[name=country_to]").value = "";
-        townFrom    = form.querySelector("input[name=town_from]").value = "";
-        townTo      = form.querySelector("input[name=town_to]").value = "";
-        weight      = form.querySelector("input[name=weight]").value = "";
-        userComment = form.querySelector("textarea[name=user_comment]").value = "";
-        }
-        requestStatus = false;
-      }
-      request.onerror = function () {
-        if (request.status != 200) {
-          button.innerHTML = "ошибка отправки";
-          button.classList.add("button_error");
-          setTimeout(function (){
-          button.innerHTML = buttonText;
-          button.classList.remove("button_error");
-          requestStatus = false;
-          }, 1500);
-        }
-      }
-    }
-
-    request.open("POST" ,"mailer/mail.php");
-    request.setRequestHeader("Content-Type" ,"application/x-www-form-urlencoded");
-    request.send(params);
-  }//end ajaxPost function
-
-  let forms = document.querySelectorAll("form");
   for(let i=0; i<forms.length; i++) {
-    forms[i].setAttribute("novalidate","");
-    forms[i].addEventListener("submit", function formSubmit(event) {
-      event.preventDefault();
+    let errorMessageStatus = [];
 
-      validateForm(event);
+    forms[i].setAttribute("novalidate","");
+
+    forms[i].addEventListener("submit", function formSubmit(event) {
+
+      event.preventDefault();
+      validateForm(event, errorMessageStatus);
     });//end addEventListener
     }//end for
+
+  //валидация данных формы
+  function validateForm (event, errorMessageStatus) {
+
+    let inputs = event.target.querySelectorAll("[required]");
+
+   //проверка значений в input
+    for(let i=0;i<inputs.length;i++) {
+
+      if(inputs[i].hasAttribute("type")){
+      //проверка телефона
+        if ("tel" == inputs[i].getAttribute("type")) {
+          if(inputs[i].value== "") {
+            errorMessage(inputs[i], "Заполните это поле!", i);
+          } else {
+            if(inputs[i].value.replace(/[^\d]/g,'').length !== 11) {
+              errorMessage(inputs[i], "Введите все цифры телефона!", i);
+            }
+          }
+        }
+      //проверка email
+        if("email" == inputs[i].getAttribute("type")) {
+          if(inputs[i].value == "") {
+            errorMessage(inputs[i], "Заполните это поле!", i);
+          } else {
+            if(inputs[i].value.indexOf("@", 0) === -1) {
+              errorMessage(inputs[i], 'Адрес электронной почты должен содержать символ "@"!', i);
+            }
+          } 
+        }
+      //проверка текстовых полей
+        if("text" == inputs[i].getAttribute("type")) {
+          if(inputs[i].value == "") {
+            errorMessage(inputs[i], "Заполните это поле!", i);
+          }
+        }
+      }//end if
+      //проверка select
+      if(inputs[i].hasAttribute("data-select")) {
+        if(inputs[i].value == "") {
+          let selectDisplay = window.getComputedStyle(inputs[i], null).getPropertyValue("display");
+
+          if(selectDisplay !== "none") {
+            errorMessage(inputs[i], "Выберите страну!", i);
+          }else {
+            if("first" == inputs[i].getAttribute("data-select")){
+              errorMessage(event.target.querySelector("div[data-select='first']"), "Выберите страну!", i);
+            }
+            if("second" == inputs[i].getAttribute("data-select")){
+              errorMessage(event.target.querySelector("div[data-select='second']"), "Выберите страну!", i);
+            }
+          }
+        }
+      }
+    }//end for
+
+     //сообщение об ошибке
+    function errorMessage (object, text, index) {
+
+      if(errorMessageStatus[index] === true) {
+        return;
+      }
+      errorMessageStatus[index] = true;
+
+      let span              = document.createElement("span"),
+          spanParent        = object.parentNode,
+          parentCoordinats  = spanParent.getBoundingClientRect(),
+          inputCoordinats   = object.getBoundingClientRect(),
+          offsetTop         = 1;
+
+      spanParent.style.position = "relative";
+      span.style.top = inputCoordinats.top - parentCoordinats.top + (inputCoordinats.bottom-inputCoordinats.top) + offsetTop + "px";
+      span.style.left = inputCoordinats.left - parentCoordinats.left + "px";
+
+      span.setAttribute("class", "input_message");
+      span.innerHTML = text;
+      spanParent.appendChild(span);
+
+      object.classList.add("input_error");
+
+      let changeLeftTop = function () {
+        parentCoordinats  = spanParent.getBoundingClientRect();
+        inputCoordinats   = object.getBoundingClientRect();
+
+        span.style.top = inputCoordinats.top - parentCoordinats.top + (inputCoordinats.bottom-inputCoordinats.top) + offsetTop + "px";
+        span.style.left = inputCoordinats.left - parentCoordinats.left + "px";
+      };
+
+      window.addEventListener("resize", changeLeftTop, false);
+
+      if(object.tagName == "DIV"&&object.hasAttribute("data-select")) {
+        let innerDiv = object.querySelector(".select__wrap");
+
+        innerDiv.addEventListener("click", function removeErrorClassDiv () {
+
+        errorMessageStatus[index] = false;
+
+        if(object.classList.contains("input_error")) {
+          object.classList.remove("input_error");
+        }
+
+        spanParent.removeChild(span);
+
+        innerDiv.removeEventListener("click", removeErrorClassDiv, false);
+        window.removeEventListener("resize", changeLeftTop, false);
+        }, false);
+
+      } else {
+        object.addEventListener("keydown", function removeErrorClass(){
+
+        errorMessageStatus[index] = false;
+
+        if(object.classList.contains("input_error")){
+          object.classList.remove("input_error");
+        };
+
+        spanParent.removeChild(span);
+
+        object.removeEventListener("keydown", removeErrorClass, false);
+        window.removeEventListener("resize", changeLeftTop, false);
+      }, false);
+    }
+  }//end errorMessage
+
+    if(errorMessageStatus.indexOf(true, 0) === -1) {
+      if(requestStatus === false) {
+        ajaxPostHelp(event);
+        requestStatus = true;
+      }
+    }
+  }
 
   //получение данных из формы для отправки
   function ajaxPostHelp(event) {
@@ -411,4 +427,79 @@ let animClose = throttle(function animationClose (time, modalObj) {
     ajaxPost(params, form);
 
   }
+
+  //открытие запроса и отправка
+  function ajaxPost(params, form) {
+    let request = new XMLHttpRequest ();
+
+    let button          = form.querySelector("button");
+    let buttonText      = button.innerHTML;
+    button.innerHTML    = "отправка...";
+
+    request.open("POST" ,"mailer/mail.php");
+    request.setRequestHeader("Content-Type" ,"application/x-www-form-urlencoded");
+    request.send(params);
+
+
+    request.onload = function () {
+      if(request.status == 200) {
+
+      if(form.classList.contains("modal-form") === true) {
+      let modal = form.closest(".modal");
+      animClose(modalAnimationTime, modal);
+      scroll(form.closest(".modal"));
+      }
+
+      setTimeout(function () {
+        let modal   = document.querySelector(".modal[data-modal='thanks']");
+        animOpen(modalAnimationTime, modal);
+        noScroll(modal);
+      },500);
+
+      button.innerHTML = buttonText;
+      
+      form.querySelector("input[name=user_name]").value = "";
+      form.querySelector("input[name=user_phone]").value = "";
+
+      if (form.classList.contains("js-cost-form") === true) {
+        userEmail   = form.querySelector("input[name=user_email]").value = "";
+        countryFrom = form.querySelector("select[name=country_from]").value = "";
+        countryTo    = form.querySelector("select[name=country_to]").value = "";
+        townFrom    = form.querySelector("input[name=town_from]").value = "";
+        townTo      = form.querySelector("input[name=town_to]").value = "";
+        weight      = form.querySelector("input[name=weight]").value = "";
+        userComment = form.querySelector("textarea[name=user_comment]").value = "";
+      }
+    }
+
+    if (request.status !== 200) {
+      requestSendError ();
+    }
+
+    requestStatus = false;
+    }
+
+    request.onerror = function () {
+      requestSendError ();
+    }
+
+    function requestSendError () {
+      button.innerHTML = "ошибка отправки";
+      button.classList.add("button_error");
+
+      button.addEventListener("click", function requestError() {
+
+        button.innerHTML = buttonText;
+        button.classList.remove("button_error");
+
+        button.removeEventListener("click", requestError);
+
+        setTimeout(function (){
+        requestStatus = false;
+
+        }, 50);
+      }, false);
+    }
+  }//end ajaxPost function
+
 });

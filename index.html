@@ -133,7 +133,7 @@
 
           <form class="main-form" action="mailer/mail.php" method="POST">
             <input class="input main-form__input" type="text" placeholder="Ваше имя" name="user_name" required>
-            <input class="input main-form__input" type="tel" placeholder="Ваш телефон" name="user_phone" required>
+            <input class="input main-form__input input_phone" type="tel" placeholder="Ваш телефон" name="user_phone" required>
             <button class="main-form__button button_hover">Получить консультацию</button>
             <div class="policy main__policy">
               <input class="policy__checkbox" id="policy" type="checkbox" checked>
@@ -770,10 +770,12 @@
 
             <legend class="cost-form__title">Ваши контакты:</legend>
             <!-- /.cost-form__title -->
-
-            <input class="cost-form__input input" type="text" placeholder="Ваше имя" name="user_name" required>
-            <input class="cost-form__input input" type="tel" placeholder="Ваш телефон" name="user_phone" required>
-            <input class="cost-form__input input" type="email" placeholder="Ваш email" name="user_email" required>
+            <div class="cost-form__block-one">
+              <input class="cost-form__input input" type="text" placeholder="Ваше имя" name="user_name" required>
+              <input class="cost-form__input input" type="tel" placeholder="Ваш телефон" name="user_phone" required>
+              <input class="cost-form__input input" type="email" placeholder="Ваш email" name="user_email" required>
+            </div>
+            <!-- /.cost-form__block-one -->
           </fieldset>
           <!-- /.cost-form__group -->
           <fieldset class="cost-form__group">
@@ -782,116 +784,116 @@
             <!-- /.cost-form__title -->
 
             <div class="cost-form__block">
-              <select class="cost-form__select cost-form__select_border input js-select-one" name="country_from" required>
-                <option value="" selected disabled>Страна отправления</option>
-                <option value="Австралия">Австралия</option>
-                <option value="Австрия">Австрия</option>
-                <option value="Албания">Албания</option>
-                <option value="Англия">Англия</option>
-                <option value="Андорра">Андорра</option>
-                <option value="Аргентина">Аргентина</option>
-                <option value="Бангладеш">Бангладеш</option>
-                <option value="Бахрейн">Бахрейн</option>
-                <option value="Бельгия">Бельгия</option>
-                <option value="Болгария">Болгария</option>
-                <option value="Боливия">Боливия</option>
-                <option value="Бразилия">Бразилия</option>
-                <option value="Босния и Герцеговина">Босния и Герцеговина</option>
-                <option value="Ботсвана">Ботсвана</option>
-                <option value="Великобритания">Великобритания</option>
-                <option value="Венгрия">Венгрия</option>
-                <option value="Венесуэла">Венесуэла</option>
-                <option value="Вьетнам">Вьетнам</option>
-                <option value="Гана">Гана</option>
-                <option value="Гватемала">Гватемала</option>
-                <option value="Германия">Германия</option>
-                <option value="Гондурас">Гондурас</option>
-                <option value="Греция">Греция</option>
-                <option value="Дания">Дания</option>
-                <option value="Доминиканская республика">Доминиканская республика</option>
-                <option value="Египет">Египет</option>
-                <option value="Замбия">Замбия</option>
-                <option value="Зимбабве">Зимбабве</option>
-                <option value="Израиль">Израиль</option>
-                <option value="Индия">Индия</option>
-                <option value="Индонезия">Индонезия</option>
-                <option value="Иордания">Иордания</option>
-                <option value="Ирландия">Ирландия</option>
-                <option value="Исландия">Исландия</option>
-                <option value="Испания">Испания</option>
-                <option value="Италия">Италия</option>
-                <option value="Канада">Канада</option>
-                <option value="Катар">Катар</option>
-                <option value="Кения">Кения</option>
-                <option value="Кипр">Кипр</option>
-                <option value="Китай">Китай</option>
-                <option value="Колумбия">Колумбия</option>
-                <option value="Коста-Рика">Коста-Рика</option>
-                <option value="Кот-д'Ивуар">Кот-д'Ивуар</option>
-                <option value="Кувейт">Кувейт</option>
-                <option value="Латвия">Латвия</option>
-                <option value="Ливан">Ливан</option>
-                <option value="Литва">Литва</option>
-                <option value="Лихтенштейн">Лихтенштейн</option>
-                <option value="Люксембург">Люксембург</option>
-                <option value="Маврикий">Маврикий</option>
-                <option value="Мадагаскар">Мадагаскар</option>
-                <option value="Мадейра">Мадейра</option>
-                <option value="Македония">Македония</option>
-                <option value="Малави">Малави</option>
-                <option value="Малайзия">Малайзия</option>
-                <option value="Мальта">Мальта</option>
-                <option value="Марокко">Марокко</option>
-                <option value="Мексика">Мексика</option>
-                <option value="Мозамбик">Мозамбик</option>
-                <option value="Монако">Монако</option>
-                <option value="Намибия">Намибия</option>
-                <option value="Нигерия">Нигерия</option>
-                <option value="Нидерланды">Нидерланды</option>
-                <option value="Новая Зеландия">Новая Зеландия</option>
-                <option value="Норвегия">Норвегия</option>
-                <option value="ОАЭ">ОАЭ</option>
-                <option value="Оман">Оман</option>
-                <option value="Пакистан">Пакистан</option>
-                <option value="Панама">Панама</option>
-                <option value="Парагвай">Парагвай</option>
-                <option value="Перу">Перу</option>
-                <option value="Польша">Польша</option>
-                <option value="Португалия">Португалия</option>
-                <option value="Россия">Россия</option>
-                <option value="Румыния">Румыния</option>
-                <option value="Сан-Марино">Сан-Марино</option>
-                <option value="Саудовская Аравия">Саудовская Аравия</option>
-                <option value="Сенегал">Сенегал</option>
-                <option value="Сербия">Сербия</option>
-                <option value="Сингапур">Сингапур</option>
-                <option value="Словакия">Словакия</option>
-                <option value="Словения">Словения</option>
-                <option value="США">США</option>
-                <option value="Таиланд">Таиланд</option>
-                <option value="Тайвань">Тайвань</option>
-                <option value="Тунис">Тунис</option>
-                <option value="Турция">Турция</option>
-                <option value="Уганда">Уганда</option>
-                <option value="Уругвай">Уругвай</option>
-                <option value="Уэльс">Уэльс</option>
-                <option value="Хорватия">Хорватия</option>
-                <option value="Черногория">Черногория</option>
-                <option value="Чехия">Чехия</option>
-                <option value="Чили">Чили</option>
-                <option value="Эквадор">Эквадор</option>
-                <option value="Эстония">Эстония</option>
-                <option value="Филиппины">Филиппины</option>
-                <option value="Финляндия">Финляндия</option>
-                <option value="Франция">Франция</option>
-                <option value="Швейцария">Швейцария</option>
-                <option value="Швеция">Швеция</option>
-                <option value="Шотландия">Шотландия</option>
-                <option value="Япония">Япония</option>
-                <option value="ЮАР">ЮАР</option>
-                <option value="Южная Корея">Южная Корея</option>
+              <select class="cost-form__select input" name="country_from" data-select="first" required>
+                  <option value="" selected disabled>Страна отправления</option>
+                  <option value="Австралия">Австралия</option>
+                  <option value="Австрия">Австрия</option>
+                  <option value="Албания">Албания</option>
+                  <option value="Англия">Англия</option>
+                  <option value="Андорра">Андорра</option>
+                  <option value="Аргентина">Аргентина</option>
+                  <option value="Бангладеш">Бангладеш</option>
+                  <option value="Бахрейн">Бахрейн</option>
+                  <option value="Бельгия">Бельгия</option>
+                  <option value="Болгария">Болгария</option>
+                  <option value="Боливия">Боливия</option>
+                  <option value="Бразилия">Бразилия</option>
+                  <option value="Босния и Герцеговина">Босния и Герцеговина</option>
+                  <option value="Ботсвана">Ботсвана</option>
+                  <option value="Великобритания">Великобритания</option>
+                  <option value="Венгрия">Венгрия</option>
+                  <option value="Венесуэла">Венесуэла</option>
+                  <option value="Вьетнам">Вьетнам</option>
+                  <option value="Гана">Гана</option>
+                  <option value="Гватемала">Гватемала</option>
+                  <option value="Германия">Германия</option>
+                  <option value="Гондурас">Гондурас</option>
+                  <option value="Греция">Греция</option>
+                  <option value="Дания">Дания</option>
+                  <option value="Доминиканская республика">Доминиканская республика</option>
+                  <option value="Египет">Египет</option>
+                  <option value="Замбия">Замбия</option>
+                  <option value="Зимбабве">Зимбабве</option>
+                  <option value="Израиль">Израиль</option>
+                  <option value="Индия">Индия</option>
+                  <option value="Индонезия">Индонезия</option>
+                  <option value="Иордания">Иордания</option>
+                  <option value="Ирландия">Ирландия</option>
+                  <option value="Исландия">Исландия</option>
+                  <option value="Испания">Испания</option>
+                  <option value="Италия">Италия</option>
+                  <option value="Канада">Канада</option>
+                  <option value="Катар">Катар</option>
+                  <option value="Кения">Кения</option>
+                  <option value="Кипр">Кипр</option>
+                  <option value="Китай">Китай</option>
+                  <option value="Колумбия">Колумбия</option>
+                  <option value="Коста-Рика">Коста-Рика</option>
+                  <option value="Кот-д'Ивуар">Кот-д'Ивуар</option>
+                  <option value="Кувейт">Кувейт</option>
+                  <option value="Латвия">Латвия</option>
+                  <option value="Ливан">Ливан</option>
+                  <option value="Литва">Литва</option>
+                  <option value="Лихтенштейн">Лихтенштейн</option>
+                  <option value="Люксембург">Люксембург</option>
+                  <option value="Маврикий">Маврикий</option>
+                  <option value="Мадагаскар">Мадагаскар</option>
+                  <option value="Мадейра">Мадейра</option>
+                  <option value="Македония">Македония</option>
+                  <option value="Малави">Малави</option>
+                  <option value="Малайзия">Малайзия</option>
+                  <option value="Мальта">Мальта</option>
+                  <option value="Марокко">Марокко</option>
+                  <option value="Мексика">Мексика</option>
+                  <option value="Мозамбик">Мозамбик</option>
+                  <option value="Монако">Монако</option>
+                  <option value="Намибия">Намибия</option>
+                  <option value="Нигерия">Нигерия</option>
+                  <option value="Нидерланды">Нидерланды</option>
+                  <option value="Новая Зеландия">Новая Зеландия</option>
+                  <option value="Норвегия">Норвегия</option>
+                  <option value="ОАЭ">ОАЭ</option>
+                  <option value="Оман">Оман</option>
+                  <option value="Пакистан">Пакистан</option>
+                  <option value="Панама">Панама</option>
+                  <option value="Парагвай">Парагвай</option>
+                  <option value="Перу">Перу</option>
+                  <option value="Польша">Польша</option>
+                  <option value="Португалия">Португалия</option>
+                  <option value="Россия">Россия</option>
+                  <option value="Румыния">Румыния</option>
+                  <option value="Сан-Марино">Сан-Марино</option>
+                  <option value="Саудовская Аравия">Саудовская Аравия</option>
+                  <option value="Сенегал">Сенегал</option>
+                  <option value="Сербия">Сербия</option>
+                  <option value="Сингапур">Сингапур</option>
+                  <option value="Словакия">Словакия</option>
+                  <option value="Словения">Словения</option>
+                  <option value="США">США</option>
+                  <option value="Таиланд">Таиланд</option>
+                  <option value="Тайвань">Тайвань</option>
+                  <option value="Тунис">Тунис</option>
+                  <option value="Турция">Турция</option>
+                  <option value="Уганда">Уганда</option>
+                  <option value="Уругвай">Уругвай</option>
+                  <option value="Уэльс">Уэльс</option>
+                  <option value="Хорватия">Хорватия</option>
+                  <option value="Черногория">Черногория</option>
+                  <option value="Чехия">Чехия</option>
+                  <option value="Чили">Чили</option>
+                  <option value="Эквадор">Эквадор</option>
+                  <option value="Эстония">Эстония</option>
+                  <option value="Филиппины">Филиппины</option>
+                  <option value="Финляндия">Финляндия</option>
+                  <option value="Франция">Франция</option>
+                  <option value="Швейцария">Швейцария</option>
+                  <option value="Швеция">Швеция</option>
+                  <option value="Шотландия">Шотландия</option>
+                  <option value="Япония">Япония</option>
+                  <option value="ЮАР">ЮАР</option>
+                  <option value="Южная Корея">Южная Корея</option>
               </select>
-              <select class="cost-form__select cost-form__select_border input js-select-two" name="country_to" required>
+              <select class="cost-form__select input" name="country_to" data-select="second" required>
                 <option value="" selected disabled>Страна назначения</option>
                 <option value="Австралия">Австралия</option>
                 <option value="Австрия">Австрия</option>
@@ -1007,11 +1009,11 @@
               <input class="cost-form__select input" type="text" placeholder="Город назначения" name="town_to" required>
             </div>
             <!-- /.cost-form__block -->
-            <div class="cost-form__block-two">
+            <div class="cost-form__block">
               <input class="cost-form__textarea input" type="text" placeholder="Вес или объем груза" name="weight" required>
-              <textarea class="cost-form__textarea input js-textarea" placeholder="Комментарии" name="user_comment" cols="30" rows="1"></textarea>
+              <textarea class="cost-form__textarea input js-textarea" placeholder="Комментарии" name="user_comment" cols="30" rows="4"></textarea>
             </div>
-            <!-- /.cost-form__block-two -->
+            <!-- /.cost-form__block -->
           </fieldset>
           <!-- /.cost-form__group -->
           <button class="cost-form__button button button_hover wow animate__animated animate__zoomIn">Узнать стоимость</button>
@@ -1075,8 +1077,8 @@
           <form class="main-form modal-form" action="mailer/mail.php" method="POST">
             <h2 class="modal__title">Заказать звонок</h2>
             <!-- /.modal__title -->
-            <input class="input main-form__input modal-form__input" type="text" placeholder="Ваше имя" name="user_name" required>
-            <input class="input main-form__input modal-form__input" type="tel" placeholder="Ваш телефон" name="user_phone" required>
+            <input class="input main-form__input modal-form__input js-modal-input" type="text" placeholder="Ваше имя" name="user_name" required>
+            <input class="input main-form__input modal-form__input js-modal-input" type="tel" placeholder="Ваш телефон" name="user_phone" required>
             <button class="main-form__button button_hover modal-form__button">Заказать звонок</button>
             <div class="policy main__policy">
               <input class="policy__checkbox" id="call-policy" type="checkbox" checked>
@@ -1101,8 +1103,8 @@
           <form class="main-form modal-form" action="mailer/mail.php" method="POST">
             <h2 class="modal__title">Получить консультацию</h2>
             <!-- /.modal__title -->
-            <input class="input main-form__input modal-form__input" type="text" placeholder="Ваше имя" name="user_name" required>
-            <input class="input main-form__input modal-form__input" type="tel" placeholder="Ваш телефон" name="user_phone" required>
+            <input class="input main-form__input modal-form__input js-modal-input" type="text" placeholder="Ваше имя" name="user_name" required>
+            <input class="input main-form__input modal-form__input js-modal-input" type="tel" placeholder="Ваш телефон" name="user_phone" required>
             <button class="main-form__button button_hover modal-form__button">Получить консультацию</button>
             <div class="policy main__policy">
               <input class="policy__checkbox" id="consult-policy" type="checkbox" checked>

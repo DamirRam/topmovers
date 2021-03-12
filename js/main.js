@@ -237,12 +237,12 @@ let animClose = throttle(function animationClose (time, modalObj) {
           divText.innerHTML = divOptWrap.firstElementChild.innerHTML;
           divText.style.color = divTextColor;
         } else {
-          divText.innerHTML = e.target.innerHTML;
-            select.value    = e.target.innerHTML;
           if(e.target.hasAttribute("data-option", "first")){
-            divText.style.color = divTextColor;
+            e.stopPropagation();
           } else {
             divText.style.color = optionTextColor;
+            divText.innerHTML = e.target.innerHTML;
+            select.value    = e.target.innerHTML;
           }
         }
       }
@@ -390,18 +390,21 @@ let animClose = throttle(function animationClose (time, modalObj) {
       if(object.tagName == "DIV"&&object.hasAttribute("data-select")) {
         let innerDiv = object.querySelector(".select__wrap");
 
-        innerDiv.addEventListener("click", function removeErrorClassDiv () {
+        innerDiv.addEventListener("click", function removeErrorClassDiv (e) {
+        if(!(e.target.hasAttribute("data-option"))) {
 
-        errorMessageStatus[index] = false;
+          errorMessageStatus[index] = false;
 
-        if(object.classList.contains("input_error")) {
-          object.classList.remove("input_error");
+          if(object.classList.contains("input_error")) {
+            object.classList.remove("input_error");
+          }
+
+          spanParent.removeChild(span);
+
+          innerDiv.removeEventListener("click", removeErrorClassDiv, false);
+          window.removeEventListener("resize", changeLeftTop, false);
         }
 
-        spanParent.removeChild(span);
-
-        innerDiv.removeEventListener("click", removeErrorClassDiv, false);
-        window.removeEventListener("resize", changeLeftTop, false);
         }, false);
 
       }
@@ -512,13 +515,28 @@ let animClose = throttle(function animationClose (time, modalObj) {
       form.querySelector("input[name=user_phone]").value = "";
 
       if (form.classList.contains("js-cost-form") === true) {
-        userEmail   = form.querySelector("input[name=user_email]").value = "";
-        countryFrom = form.querySelector("select[name=country_from]").value = "";
-        countryTo    = form.querySelector("select[name=country_to]").value = "";
-        townFrom    = form.querySelector("input[name=town_from]").value = "";
-        townTo      = form.querySelector("input[name=town_to]").value = "";
-        weight      = form.querySelector("input[name=weight]").value = "";
-        userComment = form.querySelector("textarea[name=user_comment]").value = "";
+       let selects = form.querySelectorAll("select");
+
+        form.querySelector("input[name=user_email]").value = "";
+        form.querySelector("input[name=town_from]").value = "";
+        form.querySelector("input[name=town_to]").value = "";
+        form.querySelector("input[name=weight]").value = "";
+        form.querySelector("textarea[name=user_comment]").value = "";
+
+        for(let i=0; i<selects.length; i++) {
+          selects[i].value = "";
+          if("none" == window.getComputedStyle(selects[i], null).getPropertyValue("display")) {
+            let selectDiv   = form.querySelectorAll("div[data-select]");
+            let divOption   = selectDiv[i].querySelector(".select__wrap").firstElementChild;
+            let divText     = selectDiv[i].querySelector(".select__text");
+            let divTextColor = window.getComputedStyle(selects[i], null).getPropertyValue("color");
+
+            divText.innerHTML = divOption.innerHTML;
+            divText.style.color = divTextColor;
+
+          }
+
+        }
       }
     }
 

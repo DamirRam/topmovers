@@ -9,6 +9,21 @@
     color: $text-light;
   }
   &__description {
+    width: 60%;
     font-size: 1.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .insurance {
+    &__description {
+      width: 90%;
+    }
+  }
+}
+@media (max-width: 550px) {
+  .insurance {
+    &__description {
+      width: 100%;
+    }
   }
 }

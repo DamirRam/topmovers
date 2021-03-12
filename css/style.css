@@ -384,8 +384,8 @@ a:active {
   border-radius: 50%;
   background: transparent;
   display: block;
-  height: 20px;
-  width: 20px;
+  height: 17px;
+  width: 17px;
   outline: none;
   line-height: 0px;
   font-size: 0px;
@@ -956,7 +956,7 @@ a:active {
   background-color: #ffffff;
 }
 .about__wrap {
-  max-width: 70%;
+  max-width: 60%;
 }
 .about__text {
   font-size: 1.5rem;
@@ -971,6 +971,11 @@ a:active {
   }
 }
 @media (max-width: 768px) {
+  .about__wrap {
+    max-width: 90%;
+  }
+}
+@media (max-width: 550px) {
   .about__wrap {
     max-width: 100%;
   }
@@ -1015,7 +1020,7 @@ a:active {
   height: 45rem;
   overflow: hidden;
   transition: all 0.3s;
-  box-shadow: 0px 0px 25px #507fe1;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.4);
 }
 .card:hover .card__text-wrap {
   background-color: #507fe1;
@@ -1217,7 +1222,7 @@ a:active {
   font-size: 1.5rem;
   text-align: center;
   background-color: #ffffff;
-  box-shadow: 0px 0px 25px #507fe1;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.4);
   transition: all 0.3s;
 }
 .price-card:hover {
@@ -1384,8 +1389,12 @@ a:active {
 .materials__description {
   position: relative;
   z-index: 5;
+  width: 60%;
   margin-bottom: 2rem;
+  margin-right: auto;
+  margin-left: auto;
   font-size: 1.5rem;
+  text-align: center;
 }
 
 .slider {
@@ -1439,6 +1448,10 @@ a:active {
 }
 
 @media (max-width: 992px) {
+  .materials__description {
+    width: 70%;
+  }
+
   .slider {
     text-align: center;
   }
@@ -1459,8 +1472,17 @@ a:active {
     vertical-align: top;
     max-width: 100%;
   }
+  .slider__description {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 @media (max-width: 550px) {
+  .materials__description {
+    width: 80%;
+  }
+
   .slider__img {
     max-width: 100%;
     max-height: auto;
@@ -1471,8 +1493,15 @@ a:active {
   .slider__prev-btn {
     left: -3.5rem;
   }
+  .slider__description {
+    width: 100%;
+  }
 }
 @media (max-width: 420px) {
+  .materials__description {
+    width: 100%;
+  }
+
   .slider {
     width: 100%;
   }
@@ -1502,9 +1531,20 @@ a:active {
   color: #ffffff;
 }
 .insurance__description {
+  width: 60%;
   font-size: 1.5rem;
 }
 
+@media (max-width: 768px) {
+  .insurance__description {
+    width: 90%;
+  }
+}
+@media (max-width: 550px) {
+  .insurance__description {
+    width: 100%;
+  }
+}
 /* Страхование */
 .transport {
   background-color: #f1f1f1;
@@ -1902,9 +1942,7 @@ a:active {
   margin-top: 1.3rem;
 }
 .footer__img {
-  margin-right: 1rem;
-  margin-left: 1rem;
-  width: 13%;
+  width: 20rem;
 }
 .footer__contact {
   align-items: flex-end;

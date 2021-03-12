@@ -35,8 +35,12 @@
   &__description {
     position: relative;
     z-index: 5;
+    width: 60%;
     margin-bottom: 2rem;
+    margin-right: auto;
+    margin-left: auto;
     font-size: 1.5rem;
+    text-align: center;
   }
 }
 .slider {
@@ -88,6 +92,11 @@
   }
 }
 @media (max-width: 992px) {
+  .materials {
+    &__description {
+      width: 70%;
+    }
+  }
   .slider {
     text-align: center;
     &__slide {
@@ -107,9 +116,19 @@
       vertical-align: top;
       max-width: 100%;
     }
+    &__description {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 }
 @media (max-width: 550px) {
+  .materials {
+    &__description {
+      width: 80%;
+    }
+  }
   .slider {
     &__img {
       max-width: 100%;
@@ -121,9 +140,17 @@
     &__prev-btn {
       left: -3.5rem;
     }
+    &__description {
+      width: 100%;
+    }
   }
 }
 @media (max-width: 420px) {
+  .materials {
+    &__description {
+      width: 100%;
+    }
+  }
   .slider {
     width: 100%;
   &__slide {

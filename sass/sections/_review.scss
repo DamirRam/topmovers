@@ -1,40 +1,9 @@
 .review {
-  padding-bottom: 22rem;
   background-color: $bg-light;
-    &::before {
-    content: "";
-    position: absolute;
-    z-index: 1;
-    top: -100px;
-    left: 0;
-    right: 0;
-    display: block;
-    width: 100%;
-    height: 250px;
-    background-color: $bg-light;
-    transform: skewY(-2deg);
-    }
-    &::after {
-    content: "";
-    position: absolute;
-    z-index: 4;
-    bottom: -120px;
-    left: 0;
-    right: 0;
-    display: block;
-    width: 100%;
-    height: 200px;
-    background-color: #ffffff;
-    transform: skewY(2deg);
-    }
-  &__container {
-    position: relative;
-    top: 1rem;
-  }
+
+  @include curved-line ($degrees: 2deg, $p-top: 0.7rem, $p-bottom: 1rem);
 }
 .review-slider {
-  font-size: 1.5rem;
-  margin-bottom: -18rem;
   &__slide {
     padding: 2rem;
     &:focus {
@@ -42,10 +11,12 @@
     }
   }
   &__block {
+    float: left;
+
     display: inline-block;
     width: 30%;
+
     text-align: center;
-    float: left;
   }
   &__circle {
     display: flex;
@@ -55,8 +26,10 @@
     margin-left: auto;
     height: 100px;
     width: 100px;
+
     border: 2px solid $bg-main;
     border-radius: 50%;
+
     overflow: hidden;
   }
   &__img {
@@ -65,14 +38,16 @@
   &__name {
     display: inline-block;
     margin-top: 2rem;
+
     @include regular(600);
   }
 }
 @media (max-width: 992px) {
   .review-slider {
     &__block {
-      width: 100%;
       float: none;
+
+      width: 100%;
     }
   }
 }

@@ -1,36 +1,13 @@
 .transport {
   background-color: $bg-service;
-  padding-bottom: 100px;
-  &__container {
-    position: relative;
-    top: -5rem;
-  }
-  &::before {
-    content: "";
-    position: absolute;
-    z-index: 1;
-    top: -130px;
-    left: 0;
-    right: 0;
-    display: block;
-    width: 100%;
-    height: 250px;
-    background-color: $bg-service;
-    transform: skewY(2deg);
-  }
-  &__title {
-    margin-top: 0;
-    margin-bottom: 1rem;
-  }
+
+  @include curved-line ($bg-color: $bg-service, $p-top: 4.4rem, $p-bottom: 21rem);
   &__wrap {
     display: flex;
     justify-content: space-between;
     align-self: flex-start;
   }
   &__block {
-    position: relative;
-    z-index: 5;
-    margin-top: 5rem;
     display: flex;
     justify-content: space-between;
     align-self: flex-start;
@@ -40,7 +17,7 @@
     }
   }
   &__way {
-    margin-top: 6.3rem;
+    margin-top: 4.7rem;
     padding: 1rem;
     &_margin-top-zero {
       margin-top: 0;
@@ -49,24 +26,25 @@
 }
 .way {
   &__title {
-    font-size: 2rem;
+    margin-top: 0;
+
     @include regular(900);
+    font-size: 2.2rem;
   }
   &__item {
     display: block;
     margin-bottom: 1rem;
-    font-size: 1.5rem;
   }
 }
 @media (max-width: 768px) {
   .transport {
-    padding-bottom: 110px;
     &__wrap {
     flex-wrap: wrap;
     }
     &__block {
       flex-wrap: wrap;
       width: 100%;
+
       text-align: center;
     }
     &__way {
@@ -88,6 +66,7 @@
     &__way {
       padding: 0.5rem;
       width: 50%;
+      
       text-align: center;
       &:nth-child(3) {
         margin-top: 0;

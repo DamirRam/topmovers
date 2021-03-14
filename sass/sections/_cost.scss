@@ -1,11 +1,9 @@
 .cost {
-  padding-top: 18rem;
-  padding-bottom: 10rem;
-  z-index: 5;
   background-color: rgba($bg-dark, 0.8);
   color: $text-light;
+
+  @include curved-line ($position: top, $p-top: 22.6rem, $p-bottom: 12rem);
   &__title {
-    margin-top: 2rem;
     color: $text-light;
   }
   &__form {
@@ -19,11 +17,13 @@
     margin: 0;
     margin-bottom: 3.5rem;
     padding: 0;
+
     border: none;
   }
   &__title {
     margin-bottom: 2rem;
-    font-size: 2rem;
+
+    font-size: 2.2rem;
   }
   &__input {
     width: 32%;
@@ -38,23 +38,27 @@
       justify-content: space-between;
     }
     &:nth-child(2) {
+      float: left;
+
       margin-bottom: 3rem;
       width: 49%;
-      float: left;
     }
     &:nth-child(3) {
+      float: right;
+
       margin-bottom: 3rem;
       width: 49%;
-      float: right;
     }
     &:nth-child(4) {
       clear: both;
+
       width: 100%;
     }
   }
   &__select {
     display: block;
     width: 100%;
+
     color: rgba($text-dark, 0.7);
     & option {
       color: $text-dark;//поменять цвет текста также в классе .select__option
@@ -72,46 +76,55 @@
 
   &__textarea {
     width: 100%;
+
     overflow: hidden;
     resize: none;
     &:nth-child(2) {
-      height: auto;
       margin-top: 3rem;
+      height: auto;
     }
   }
   &__button {
     display: block;
     margin-left: auto;
     margin-right: auto;
+
     border: 1px solid $bg-main;
-    font-size: 1.5rem;
   }
 }
 //стилизация select 
 .select {
   position: relative;
+
   padding-left: 10px;
+
   background-color: $bg-light;
   &__text {
     position: absolute;
     top: 50%;
+
     transform: translateY(-50%);
   }
   &:hover::after{
     opacity: 1;
+
     transition: all $transition-delay;
   }
   &::after {
     content: "";
+
     position: absolute;
     top: 9px;
     right: 9px;
     width: 25px;
     height: 25px;
+
     background: url(../img/offer-arrow.png) center no-repeat;
+
+    transition: all $transition-delay;
+
     transform: rotate(0deg);
     opacity: 0;
-    transition: all $transition-delay;
   }
   &.on::after {
     opacity: 1;
@@ -121,23 +134,30 @@
     position: absolute;
     left: 0px;
     z-index: 15;
-    visibility: hidden;
+
     height: 0rem;
     width: 100%;
+
     border: 1px solid $bg-light;
     background-color: $bg-light;
+
+    transition: all $transition-delay;
+
+    visibility: hidden;
     overflow-y: scroll;
     overflow-x: hidden;
-    transition: all $transition-delay;
     &_active {
       z-index: 15;
-      visibility: visible;
+
       transition: all $transition-delay;
+
+      visibility: visible;
     }
   }
   &__option {
     display: block;
     padding: 0.5rem 0rem 0.5rem 10px;
+
     color: $text-dark;
     &:first-child {
       color: rgba($text-dark, 0.7);
@@ -156,9 +176,10 @@
   .cost-form {
     width: 80%;
     &__input {
+      float: none;
+
       width: 100%;
       margin-bottom: 3rem;
-      float: none;
       &:nth-child(2) {
         margin-left: 0;
         margin-right: 0;
@@ -170,10 +191,12 @@
       }
       &:nth-child(2) {
         float: none;
+
         width: 100%;
       }
       &:nth-child(3) {
         float: none;
+
         width: 100%;
       }
     }

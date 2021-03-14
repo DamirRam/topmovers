@@ -1,16 +1,13 @@
 .insurance {
   background-color: rgba($bg-dark, 0.8);
-  padding-bottom: 23rem;
-  z-index: 5;
+
+  @include curved-line ($degrees: 2deg, $position: top, $p-top: 19rem, $p-bottom: 17rem);
   color: $text-light;
   &__title {
-    top: 21rem;
-    margin-bottom: 28rem;
     color: $text-light;
   }
   &__description {
     width: 60%;
-    font-size: 1.5rem;
   }
 }
 @media (max-width: 768px) {

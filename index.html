@@ -4,7 +4,8 @@
     <!-- Мета теги -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
     <!-- normalize.css -->
     <link rel="stylesheet" href="css/normalize.css">
     <!-- Кастомные стили -->
@@ -121,7 +122,7 @@
 
   <main class="main-content">
 
-    <section class="main">
+    <section class="main section">
       <div class="container">
         <div class="main__wrap">
 
@@ -133,13 +134,13 @@
 
           <form class="main-form" action="mailer/mail.php" method="POST">
             <input class="input main-form__input" type="text" placeholder="Ваше имя" name="user_name" required>
-            <input class="input main-form__input input_phone" type="tel" placeholder="Ваш телефон" name="user_phone" required>
-            <button class="main-form__button button_hover">Получить консультацию</button>
+            <input class="input main-form__input" type="tel" placeholder="Ваш телефон" name="user_phone" required>
+            <button class="main-form__button button-hover">Получить консультацию</button>
             <div class="policy main__policy">
               <input class="policy__checkbox" id="policy" type="checkbox" checked required>
               <label class="policy__label" for="policy"></label>
               <span class="policy__text">Принимаю условия</span>
-              <a href="" class="policy__link">политики конфиденциальности</a>
+              <a class="policy__link" href="policy">политики конфиденциальности</a>
             </div>
           </form>
           <!-- /.main-form -->
@@ -151,9 +152,9 @@
     </section>
     <!-- /.main -->
 
-    <section class="about section" id="about">
-      <div class="container">
-        <h2 class="about__title section__title wow animate__animated animate__bounceInLeft">О компании</h2>
+    <section class="about section">
+      <div class="container about__container">
+        <h2 class="about__title section__title wow animate__animated animate__bounceInLeft" id="about">О компании</h2>
         <div class="about__wrap">
           <!-- /.about__title section-title -->
           <p class="about__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic fugit totam quam nobis, quisquam perspiciatis provident velit sapiente. Pariatur labore et voluptas quis laborum nemo voluptatum beatae tenetur non ab, quas voluptatibus facere accusamus, numquam a. Sunt voluptatibus optio aperiam similique voluptatum. Iusto itaque quasi ad, nulla ullam libero inventore.</p>
@@ -168,9 +169,9 @@
     </section>
     <!-- /.about section -->
 
-    <section class="service section" id="service">
+    <section class="service section">
       <div class="container">
-          <h2 class="section__title service__title wow animate__animated animate__bounceInLeft">Услуги</h2>
+          <h2 class="section__title service__title wow animate__animated animate__bounceInLeft" id="service">Услуги</h2>
           <!-- /.section__header -->
         <div class="service__wrap">
 
@@ -230,30 +231,30 @@
     </section>
     <!-- /.section service -->
 
-    <section class="features section" id="features">
+    <section class="features section">
       <div class="container">
-      <h2 class="features__title section__title wow animate__animated animate__bounceInLeft">Наши преимущества</h2>
+      <h2 class="features__title section__title wow animate__animated animate__bounceInLeft" id="features">Наши преимущества</h2>
       <!-- /.features__title section__title -->
         <div class="features__wrap">
 
           <div class="features__item">
             <img class="features__img" src="img/main/icon1.png" alt="Преимущество 1">
-            <span class="features__text">Преимущество 1</span>
+            <h4 class="features__text">Преимущество 1</h4>
           </div>
           <!-- /.features__item -->
           <div class="features__item">
             <img class="features__img" src="img/main/icon1.png" alt="Преимущество 2">
-            <span class="features__text">Преимущество 2</span>
+            <h4 class="features__text">Преимущество 2</h4>
           </div>
           <!-- /.features__item -->
           <div class="features__item">
             <img class="features__img" src="img/main/icon1.png" alt="Преимущество 3">
-            <span class="features__text">Преимущество 3</span>
+            <h4 class="features__text">Преимущество 3</h4>
           </div>
           <!-- /.features__item -->
           <div class="features__item">
             <img class="features__img" src="img/main/icon1.png" alt="Преимущество 4">
-            <span class="features__text">Преимущество 4</span>
+            <h4 class="features__text">Преимущество 4</h4>
           </div>
           <!-- /.features__item -->
 
@@ -264,66 +265,70 @@
     </section>
     <!-- /.features section -->
 
-    <section class="price section" id="price">
+    <section class="price section">
       <div class="container">
 
-        <h2 class="price__title section__title wow animate__animated animate__bounceInLeft">Стоимость перевозки</h2>
+        <h2 class="price__title section__title wow animate__animated animate__bounceInLeft" id="price">Стоимость перевозки</h2>
         <!-- /.price__title section__title -->
 
         <div class="price__wrap">
 
           <div class="price-card">
-            <div class="price-block price-card__price-block price-block_one">
-              <span class="price-block__from">От<span class="price-block__price"> Цена €</span></span>
-              <span class="price-block__time">Срок</span>
+            <span class="price-card__from">От<span class="price-card__price"> Цена €</span></span>
+            <span class="price-card__time">Срок</span>
+
+            <div class="price-card__block">
+              <h3 class="price-card__title">Морская перевозка</h3>
+              <!-- /.price-card__title -->
+              <p class="price-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, natus et eveniet numquam dolore reprehenderit saepe laboriosam dignissimos voluptatem porro. Suscipit optio exercitationem amet, incidunt molestiae maxime odio blanditiis cupiditate?</p>
+              <!-- /.price-card__description -->
+              <a class="price-card__link" href="#cost">Узнать стоимость</a>
             </div>
-            <!-- /.price-block price-card__price-block -->
-            <h3 class="price-card__title">Морская перевозка</h3>
-            <!-- /.price-card__title -->
-            <p class="price-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, natus et eveniet numquam dolore reprehenderit saepe laboriosam dignissimos voluptatem porro. Suscipit optio exercitationem amet, incidunt molestiae maxime odio blanditiis cupiditate?</p>
-            <!-- /.price-card__description -->
-            <a class="price-card__link" href="#cost">Узнать стоимость</a>
+            <!-- /.price-card__block -->
           </div>
           <!-- /.price-card -->
+
           <div class="price-card">
-            <div class="price-block price-card__price-block price-block_two">
-              <span class="price-block__from">От<span class="price-block__price"> Цена €</span></span>
-              <span class="price-block__time">Срок</span>
+            <span class="price-card__from">От<span class="price-card__price"> Цена €</span></span>
+            <span class="price-card__time">Срок</span>
+
+            <div class="price-card__block">
+              <h3 class="price-card__title">Авиаперевозка</h3>
+              <!-- /.price-card__title -->
+              <p class="price-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, natus et eveniet numquam dolore reprehenderit saepe laboriosam dignissimos voluptatem porro. Suscipit optio exercitationem amet, incidunt molestiae maxime odio blanditiis cupiditate?</p>
+              <!-- /.price-card__description -->
+              <a class="price-card__link" href="#cost">Узнать стоимость</a>
             </div>
-            <!-- /.price-block price-card__price-block -->
-            <h3 class="price-card__title">Автоперевозка</h3>
-            <!-- /.price-card__title -->
-            <p class="price-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea tempora est rerum ipsa praesentium reprehenderit in nobis eligendi hic quos, quae nihil illum eum nesciunt ducimus fuga accusantium sed totam?</p>
-            <!-- /.price-card__description -->
-            <a class="price-card__link" href="#cost">Узнать стоимость</a>
+            <!-- /.price-card__block -->
           </div>
           <!-- /.price-card -->
+
           <div class="price-card">
-            <div class="price-block price-card__price-block price-block_three">
-              <span class="price-block__from">От<span class="price-block__price"> Цена €</span></span>
-              <span class="price-block__time">Срок</span>
+            <span class="price-card__from">От<span class="price-card__price"> Цена €</span></span>
+            <span class="price-card__time">Срок</span>
+
+            <div class="price-card__block">
+              <h3 class="price-card__title">Автоперевозка</h3>
+              <!-- /.price-card__title -->
+              <p class="price-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, natus et eveniet numquam dolore reprehenderit saepe laboriosam dignissimos voluptatem porro. Suscipit optio exercitationem amet, incidunt molestiae maxime odio blanditiis cupiditate?</p>
+              <!-- /.price-card__description -->
+              <a class="price-card__link" href="#cost">Узнать стоимость</a>
             </div>
-            <!-- /.price-block price-card__price-block -->
-            <h3 class="price-card__title">Авиаперевозка</h3>
-            <!-- /.price-card__title -->
-            <p class="price-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis debitis in dolor veritatis dicta atque sequi, eos amet quod esse aliquid blanditiis est odio cupiditate voluptatibus veniam, molestiae suscipit fuga.</p>
-            <!-- /.price-card__description -->
-            <a class="price-card__link" href="#cost">Узнать стоимость</a>
+            <!-- /.price-card__block -->
           </div>
           <!-- /.price-card -->
 
         </div>
         <!-- /.price__wrap -->
-
       </div>
       <!-- /.container -->
     </section>
     <!-- /.price section -->
 
-    <section class="materials section" id="materials">
+    <section class="materials section">
       <div class="container">
 
-        <h2 class="section__title materials__title wow animate__animated animate__bounceInLeft">Упаковочные материалы</h2>
+        <h2 class="section__title materials__title wow animate__animated animate__bounceInLeft" id="materials">Упаковочные материалы</h2>
         <!-- /.section__title -->
 
         <p class="materials__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam laborum, nisi dolorem. Harum a excepturi dolore repellendus eveniet voluptatem illo, vero aut velit earum optio nihil laborum itaque. Nesciunt pariatur in, non veniam cupiditate culpa! Quod voluptas tenetur nobis dicta, ex! Officia deserunt nihil explicabo odit illo doloribus veritatis minus.</p>
@@ -417,9 +422,9 @@
     </section>
     <!-- /.materials section -->
 
-    <section class="insurance section" id="insurance">
+    <section class="insurance section">
       <div class="container">
-        <h2 class="section__title insurance__title wow animate__animated animate__bounceInLeft">Страхование</h2>
+        <h2 class="section__title insurance__title wow animate__animated animate__bounceInLeft" id="insurance">Страхование</h2>
         <!-- /.section__title -->
         <p class="insurance__description">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum magni autem culpa, voluptate, aut esse, ipsa possimus fugit amet assumenda corporis. Nobis, adipisci, voluptas! Animi doloremque autem aliquid, nesciunt maxime officiis ut perferendis, soluta, facere commodi praesentium ratione saepe, molestias. Vitae cumque repellat ut modi incidunt ea, alias dolore odit.
@@ -434,10 +439,10 @@
     </section>
     <!-- /.insurance section -->
 
-    <section class="transport section" id="transport">
-      <div class="container transport__container">
+    <section class="transport section">
+      <div class="container">
 
-        <h2 class="section__title transport__title wow animate__animated animate__bounceInLeft">Мы перевозим в следующие страны:</h2>
+        <h2 class="section__title transport__title wow animate__animated animate__bounceInLeft" id="transport">Мы перевозим в следующие страны:</h2>
         <!-- /.section__title transport__title -->
 
         <div class="transport__wrap">
@@ -691,10 +696,10 @@
     </section>
     <!-- /.transport section -->
 
-    <section class="review section" id="review">
-      <div class="container review__container">
+    <section class="review section">
+      <div class="container">
 
-        <h2 class="section__title review__title wow animate__animated animate__bounceInLeft">Отзывы</h2>
+        <h2 class="section__title review__title wow animate__animated animate__bounceInLeft" id="review">Отзывы</h2>
         <!-- /.section__title review__title -->
 
           <div class="slider review-slider js-slider">
@@ -758,10 +763,10 @@
     </section>
     <!-- /.review section -->
 
-    <section class="cost section" id="cost">
-      <div class="container cost__container">
+    <section class="cost section">
+      <div class="container">
 
-        <h2 class="section__title cost__title wow animate__animated animate__bounceInLeft">Узнайте стоимость Вашего переезда</h2>
+        <h2 class="section__title cost__title wow animate__animated animate__bounceInLeft" id="cost">Узнайте стоимость Вашего переезда</h2>
         <!-- /.section__title cost__title -->
 
         <form class="cost-form cost__form js-cost-form" action="mailer/mail.php" method="POST">
@@ -1016,7 +1021,7 @@
             <!-- /.cost-form__block -->
           </fieldset>
           <!-- /.cost-form__group -->
-          <button class="cost-form__button button button_hover wow animate__animated animate__zoomIn">Узнать стоимость</button>
+          <button class="cost-form__button button button-hover wow animate__animated animate__zoomIn">Узнать стоимость</button>
         </form>
         <!-- /.cost-form cost__form -->
       </div>
@@ -1051,9 +1056,9 @@
         <div class="footer__block">
 
           <div class="contact footer__contact">
-            <a class="contact__phone footer__cont" href="tel:">+7 977 965 65 65</a>
-            <a class="contact__mail footer__cont" href="mailto:">sales@topmovers.ru</a>
-            <span class="contact__address footer__cont">г. Москва, ул. Неверовского, д.9</span>
+            <a class="contact__phone footer__contact-item" href="tel:">+7 977 965 65 65</a>
+            <a class="contact__mail footer__contact-item" href="mailto:">sales@topmovers.ru</a>
+            <span class="contact__address footer__contact-item">г. Москва, ул. Неверовского, д.9</span>
           </div>
           <!-- /.contact -->
 
@@ -1075,14 +1080,14 @@
           <form class="main-form modal-form" action="mailer/mail.php" method="POST">
             <h2 class="modal__title">Заказать звонок</h2>
             <!-- /.modal__title -->
-            <input class="input main-form__input modal-form__input js-modal-input" type="text" placeholder="Ваше имя" name="user_name" required>
-            <input class="input main-form__input modal-form__input js-modal-input" type="tel" placeholder="Ваш телефон" name="user_phone" required>
-            <button class="main-form__button button_hover modal-form__button">Заказать звонок</button>
-            <div class="policy main__policy">
+            <input class="main-form__input modal-form__input input" type="text" placeholder="Ваше имя" name="user_name" required>
+            <input class="main-form__input modal-form__input input" type="tel" placeholder="Ваш телефон" name="user_phone" required>
+            <button class="main-form__button button-hover modal-form__button">Заказать звонок</button>
+            <div class="policy">
               <input class="policy__checkbox" id="call-policy" type="checkbox" checked required>
               <label class="policy__label" for="call-policy"></label>
               <span class="policy__text">Принимаю условия</span>
-              <a href="" class="policy__link">политики конфиденциальности</a>
+              <a class="policy__link" href="">политики конфиденциальности</a>
             </div>
           </form>
           <!-- /.main-form -->
@@ -1101,14 +1106,14 @@
           <form class="main-form modal-form" action="mailer/mail.php" method="POST">
             <h2 class="modal__title">Получить консультацию</h2>
             <!-- /.modal__title -->
-            <input class="input main-form__input modal-form__input js-modal-input" type="text" placeholder="Ваше имя" name="user_name" required>
-            <input class="input main-form__input modal-form__input js-modal-input" type="tel" placeholder="Ваш телефон" name="user_phone" required>
-            <button class="main-form__button button_hover modal-form__button">Получить консультацию</button>
-            <div class="policy main__policy">
+            <input class=" main-form__input modal-form__input input" type="text" placeholder="Ваше имя" name="user_name" required>
+            <input class=" main-form__input modal-form__input input" type="tel" placeholder="Ваш телефон" name="user_phone" required>
+            <button class="main-form__button button-hover modal-form__button">Получить консультацию</button>
+            <div class="policy">
               <input class="policy__checkbox" id="consult-policy" type="checkbox" checked required>
               <label class="policy__label" for="consult-policy"></label>
               <span class="policy__text">Принимаю условия</span>
-              <a href="" class="policy__link">политики конфиденциальности</a>
+              <a class="policy__link" href="">политики конфиденциальности</a>
             </div>
           </form>
           <!-- /.main-form -->

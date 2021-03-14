@@ -1,40 +1,50 @@
 .header {
   position: fixed;
   top: 0px;
-  left: 0px; 
+  left: 0px;
   right: 0px;
   z-index: 20;
-  font-size: 1.5rem;
-  background-color: $bg-dark;
+
   height: $header-height;
+
+  font-size: 1.5rem;
+
+  background-color: $bg-dark;
   color: $text-light;
   &__inner {
     position: relative;
     z-index: 20;
+
     background-color: $bg-dark;
   }
   &__wrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     height: $header-height;
   }
 }
 .menu-btn {
   position: relative;
+  
   width: 5rem;
   height: 100%;
+
   border: none;
   background-color: transparent;
+
   transition: all $transition-delay;
   &_active {
     background-color: $bg-main;
   }
   &:hover {
     background-color: $bg-main;
+
     transition: all $transition-delay;
     .menu-btn__line, .menu-btn__line::after, .menu-btn__line::before {
       background-color: $bg-light;
+
       transition: all $transition-delay;
     }
   }
@@ -47,6 +57,7 @@
 
     border: none;
     background-color: $bg-main;
+
     transition: all $transition-delay;
   }
   &__line {
@@ -54,17 +65,20 @@
 
     top: 50%;
     left: 50%;
+
     transform: translate(-50%, -50%);
     &::after {
       @include menu-btn__line;
 
       content: "";
+
       top: 7px;
     }
     &::before {
       @include menu-btn__line;
 
       content: "";
+
       bottom: 7px;
     }
   }
@@ -72,35 +86,41 @@
     background-color: transparent !important;
     &::before {
       bottom: 0;
-      transform: rotate(45deg);
+
       background-color: $bg-light;
+
+      transform: rotate(45deg);
     }
     &::after {
       top: 0;
-      transform: rotate(-45deg);
+
       background-color: $bg-light;
+
+      transform: rotate(-45deg);
     }
   }
 }
 .logo {
+  margin-top: -0.6rem;
   display: flex;
   flex-direction: column;
-  margin-top: -0.6rem;
   &__title {
     margin-top: 0;
+
     @include bold(700);
     font-size: 28px;
-    color: $text-light;
     text-transform: uppercase;
-    font-weight: bold;
     letter-spacing: 0.8px;
     line-height: normal;
+
+    color: $text-light;
     span {
       color: #ffa000;
     }
   }
   &__subtitle {
     font-size: 14px;
+
     color: $text-light;
   }
 }
@@ -113,87 +133,115 @@
 
   &__address {
     position: relative;
+
     margin-bottom: 1.3rem;
     &::before {
-      font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
       content: "\f3c5";
-      font-weight: 900;
-      font-size: 1.5rem;
-      color: $icons-color;
+
       position: absolute;
       top: 50%;
-      transform: translateY(-59%);
       left: -18px;
+
       display: block;
       width: 15px;
       height: 15px;
+
+      font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+      font-weight: 900;
+      font-size: 1.5rem;
+
+      color: $icons-color;
+
+      transform: translateY(-59%);
     }
   }
   &__schedule {
     position: relative;
     &::before {
-      font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
       content: "\f017";
-      font-weight: 900;
-      font-size: 1.5rem;
-      color: $icons-color;
+
       position: absolute;
       top: 50%;
-      transform: translateY(-59%);
       left: -20px;
+
       display: block;
       width: 15px;
       height: 15px;
+
+      font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+      font-weight: 900;
+      font-size: 1.5rem;
+
+      color: $icons-color;
+
+      transform: translateY(-59%);
     }
   }
   &__phone {
     position: relative;
+
     margin-bottom: 1.2rem;
-    text-transform: uppercase;
+
     @include regular();
     font-size: 1.7rem;
+    text-transform: uppercase;
+
     color: $text-light;
     &::before {
-      font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
       content: "\f098";
-      font-weight: 900;
-      font-size: 1.5rem;
-      color: $icons-color;
+
       position: absolute;
       top: 50%;
-      transform: translateY(-59%);
       left: -20px;
+
       display: block;
       width: 15px;
       height: 15px;
+
+      font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+      font-weight: 900;
+      font-size: 1.5rem;
+
+      color: $icons-color;
+
+      transform: translateY(-59%);
     }
   }
   &__mail {
     position: relative;
+
     color: $text-light;
     &::before {
-      font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
       content: "\f0e0";
-      font-weight: 900;
-      font-size: 1.5rem;
-      color: $icons-color;
+
       position: absolute;
       top: 50%;
-      transform: translateY(-59%);
       left: -20px;
+
       display: block;
       width: 15px;
       height: 15px;
+
+      font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+      font-weight: 900;
+      font-size: 1.5rem;
+
+      color: $icons-color;
+
+      transform: translateY(-59%);
     }
   }
 }
 .language {
   margin: 0;
   padding: 0;
+
   list-style-type: none;
   &__item {
     position: relative;
+
     margin-bottom: 1.3rem;
+
     color: $text-light;
     &:last-child {
       margin-bottom: 0px;
@@ -203,30 +251,39 @@
     color: $text-light;
     &_english::before {
       content: "";
+
       position: absolute;
       top: 50%;
-      transform: translateY(-50%);
       left: -20px;
+
       display: block;
       width: 15px;
       height: 15px;
+
       background: url("../img/english.png") center no-repeat;
+
+      transform: translateY(-50%);
     }
     &_russian::before {
       content: "";
+
       position: absolute;
       top: 50%;
-      transform: translateY(-50%);
       left: -20px;
+
       display: block;
       width: 15px;
       height: 15px;
+
       background: url("../img/russian.png") center no-repeat;
+
+      transform: translateY(-50%);
     }
   }
 }
 .btn-callback {
   @include regular(700);
+
   border: 2px solid $bg-main;
   background-color: $bg-dark;
   color: $text-main;

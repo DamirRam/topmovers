@@ -1,145 +1,154 @@
 .price {
-  padding-bottom: 22rem;
   background-color: $bg-service;
-  &::after {
-    content: "";
-    position: absolute;
-    z-index: 1;
-    top: -100px;
-    left: 0;
-    right: 0;
-    display: block;
-    width: 100%;
-    height: 250px;
-    background-color: $bg-service;
-    transform: skewY(-2deg);
-  }
+
+  @include curved-line ($bg-color: $bg-service, $degrees: 2deg, $p-top: 0.7rem, $p-bottom: 19rem);
   &__wrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  &__title {
-    position: relative;
-    top: 1rem;
-    margin-bottom: 8rem;
-  }
 }
 .price-card {
   position: relative;
   z-index: 5;
-  width: 28rem;
-  height: 50rem;
-  font-size: 1.5rem;
+
+  padding-top: 8rem;
+  width: 29rem;
+  height: 53rem;
+
   text-align: center;
+
   background-color: $bg-light;
   box-shadow: 0px 0px 25px rgba($bg-dark, 0.4);
-  transition: all $transition-delay;
-  &:hover {
-    background-color: $bg-main;
-    transition: all $transition-delay;
-    color: $text-light;
-    & .price-card__title {
-      color: $text-light;
-    }
-  }
-  &:hover .price-block::after{
-    background-color: $bg-main;
-    transition: all $transition-delay;
-  }
-  &:hover .price-card__link {
-    visibility: visible;
-    color: $text-light;
-  }
-  &__price-block {
-    margin-bottom: 2rem;
-  }
-  &__title {
-    position: relative;
-    z-index: 5;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-    color: $text-main;
-  }
-  &__description {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-  &__link {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 2rem;
-    width: 100%;
-    visibility: hidden;
-    font-size: 1.8rem;
-    text-decoration: underline;
-    &:hover {
-      text-decoration: none;
-    }
-  }
-}
-.price-block {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  flex-direction: column;
-  height: 50%;
-  text-align: center;
-  vertical-align: middle;
-  color: $text-light;
-  transition: all $transition-delay;
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -27px;
-    right: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    height: 4rem;
-    background-color: $bg-light;
-    transform: skewY(5deg);
-    transition: all $transition-delay;
-  }
-  &::before {
-    content: "";
-    position: absolute;
-    bottom: -15px;
-    right: 0;
-    display: block;
-    width: 35%;
-    height: 3rem;
-    background-color: rgba($bg-light, 0.8);
-    transform: skewY(-11deg);
-  }
-  &_one {
+
+  overflow: hidden;
+
+  &:nth-child(1) {
     background: url(../img/price/cost-1.png) center no-repeat;
     background-size: cover;
   }
-  &_two {
+  &:nth-child(2) {
     background: url(../img/price/cost-1.png) center no-repeat;
-    background-size: cover;}
-  &_three {
+    background-size: cover;
+  }
+  &:nth-child(3) {
     background: url(../img/price/cost-1.png) center no-repeat;
-    background-size: cover;}
+    background-size: cover;
+  }
+  &:hover &__block {
+    background-color: $bg-main;
+
+    transition: all $transition-delay;
+    &::after {
+      background-color: $bg-main;
+
+      transition: all $transition-delay;
+    }
+  }
+  &:hover &__title {
+    color: $text-light;
+  }
+  &:hover  &__description {
+    color: $text-light;
+  }
+  &:hover &__link {
+    visibility: visible;
+  }
+  &__from {
+    color: $text-light;
+  }
   &__price {
     display: inline-block;
     margin-left: 1rem;
+
     @include bold(700);
-    text-transform: uppercase;
     font-size: 2.5rem;
+
+    text-transform: uppercase;
   }
   &__time {
     display: block;
     margin-top: 1.5rem;
+
+    color: $text-light;
+  }
+  &__block {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    padding: 0 1rem 1.5rem 1rem;
+
+    color: $bg-dark;
+    background-color: $bg-light;
+
+    transition: all $transition-delay;
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      top: -27px;
+      right: 0;
+      left: 0;
+
+      display: block;
+      width: 100%;
+      height: 40px;
+
+      background-color: $bg-light;
+
+      transition: all $transition-delay;
+
+      transform: skewY(5deg);
+    }
+    &::before {
+      content: "";
+
+      position: absolute;
+      top: -31px;
+      right: 0;
+      z-index: -1;
+
+      display: block;
+      width: 35%;
+      height: 40px;
+
+      background-color: rgba($bg-light, 0.8);
+
+      transform: skewY(-11deg);
+    }
+  }
+  &__title {
+    position: relative;
+    z-index: 5;
+
+    margin-bottom: 2rem;
+
+    font-size: 2.2rem;
+
+    color: $text-main;
+  }
+  &__description {
+    margin-top: 0;
+    margin-bottom: 1rem;
+
+    color: $text-dark;
+  }
+  &__link {
+    font-size: 1.8rem;
+
+    text-decoration: underline;
+
+    visibility: hidden;
+    &:hover {
+      color: $text-light;
+      text-decoration: none;
+    }
   }
 }
 @media (max-width: 992px) {
-  .price {
-    padding-bottom: 24rem;
-  }
   .price-card {
     width: 26rem;
     height: 53rem;
@@ -154,5 +163,4 @@
     width: 31rem;
     margin-top: 3rem;
   }
-
 }

@@ -1,37 +1,54 @@
 /* Шрифты */
 @import "fonts";
+
 /* Цвета */
 @import "colors-variables";
+
 /* базовые настройки */
 @import "base";
+
 /* slick слайдер */
 @import "slick/slick";
 @import "slick/slick-theme";
+
 /* header */
 @import "sections/header";
+
 /* menu */
 @import "sections/menu";
+
 /* Главный экран */
 @import "sections/main";
+
 /* О компании */
 @import "sections/about";
+
 /* Услуги */
 @import "sections/service";
+
 /* Преимущества */
 @import "sections/features";
+
 /* Стоимость */
 @import "sections/price";
+
 /* Материалы */
 @import "sections/materials";
+
 /* Страхование */
 @import "sections/insurance";
+
 /* Страхование */
 @import "sections/transport";
+
 /* Отзывы */
 @import "sections/review";
+
 /* Узнать стоимость */
 @import "sections/cost";
+
 /* Футер */
 @import "sections/footer";
+
 /* Модальные окна */
 @import "modal";

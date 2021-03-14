@@ -1,23 +1,7 @@
 .service {
-  padding-top: 0.5rem;
-  padding-bottom: 23rem;
   background-color: $bg-service;
-  &::after {
-    content: "";
-    position: absolute;
-    z-index: 1;
-    top: -100px;
-    left: 0;
-    right: 0;
-    display: block;
-    width: 100%;
-    height: 250px;
-    background-color: $bg-service;
-    transform: skewY(-2deg);
- }
-  &__title {
-    margin-bottom: 3rem;
-  }
+
+  @include curved-line ($bg-color: $bg-service,$degrees: 2deg, $p-top: 0.7rem, $p-bottom: 19rem);
   &__wrap {
     display: flex;
     justify-content: space-between;
@@ -25,31 +9,44 @@
     flex-wrap: wrap;
   }
   &__card {
-    margin-top: 4rem;
+    &:nth-child(1) {
+    margin-bottom: 4rem;
+    }
+    &:nth-child(2) {
+    margin-bottom: 4rem;
+    }
   }
 }
 .card {
   position: relative;
   z-index: 5;
-  background-color: $bg-light;
+
+  height: 450px;
   flex-basis: 48%;
-  height: 45rem;
-  overflow: hidden;
-  transition: all $transition-delay;
+
+  background-color: $bg-light;
   box-shadow: 0px 0px 25px rgba($bg-dark, 0.4);
+
+  transition: all $transition-delay;
+
+  overflow: hidden;
   &:hover .card__text-wrap{
     background-color: $bg-main;
     color: $text-light;
+
     transition: all $transition-delay;
+
     visibility: visible;
     &::before {
       background-color: $bg-main;
+
       transition: all $transition-delay;
     }
   }
   &:hover .card__link {
-    visibility: visible;
     color: $text-light;
+
+    visibility: visible;
   }
   &:hover .card__title {
     color: $text-light;
@@ -59,58 +56,75 @@
   }
   &__text-wrap {
     position: absolute;
-    top: 22rem;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 5;
+
     padding: 1rem 2rem;
     width: 100%;
     height: auto;
-    font-size: 1.5rem;
+
     background-color: $bg-light;
+
     transition: all $transition-delay;
     &::before {
       content: "";
+
       position: absolute;
       top: -15px;
       left: 0;
       z-index: 2;
+
+      display: block;
       width: 100%;
       height: 70px;
-      display: block;
+
       background-color: $bg-light;
-      transform: skewY(5deg);
+
       transition: all $transition-delay;
+
+      transform: skewY(5deg);
     }
     &::after {
       content: "";
+
       position: absolute;
       top: -15px;
       right: 0;
-      z-index: 0;
+      z-index: -1;
+
+      display: block;
       width: 35%;
       height: 60px;
-      display: block;
+
       background-color: rgba($bg-light, 0.8);
-      transform: skewY(-10deg);
+
       transition: all $transition-delay;
+
+      transform: skewY(-10deg);
     }
   }
   &__link {
     position: relative;
     z-index: 5;
-    visibility: hidden;
+
     font-size: 1.8rem;
+
     text-decoration: underline;
+
+    visibility: hidden;
   }
   &__title {
     position: relative;
     z-index: 5;
+
     margin-top: 1rem;
     margin-bottom: 1rem;
-    font-size: 2rem;
+
+    font-size: 2.2rem;
     font-weight: 900;
+
     color: $text-main;
   }
   &__text {
@@ -118,13 +132,12 @@
     z-index: 5;
   }
 }
-@media (max-width: 992px) {
-  .service {
-    padding-top: 0;
-    padding-bottom: 24rem;
-  }
-}
 @media (max-width: 768px) {
+  .service {
+    &__card {
+      margin-bottom: 4rem;
+    }
+  }
   .card {
     flex-basis: 80%;
     margin-right: auto;

@@ -1,14 +1,4 @@
 @font-face {
-font-family: 'Proxima Nova Light';
-src: url('../fonts/ProximaNova-Light.eot');
-src: url('../fonts/ProximaNova-Light.eot?#iefix') format('embedded-opentype'),
-url('../fonts/ProximaNova-Light.woff') format('woff'),
-url('../fonts/ProximaNova-Light.ttf') format('truetype');
-font-weight: normal;
-font-style: normal;
-font-display: swap;
-}
-@font-face {
 font-family: 'Proxima Nova Regular';
 src: url('../fonts/ProximaNova-Regular.eot');
 src: url('../fonts/ProximaNova-Regular.eot?#iefix') format('embedded-opentype'),
@@ -18,6 +8,7 @@ font-weight: normal;
 font-style: normal;
 font-display: swap;
 }
+
 @font-face {
 font-family: 'Proxima Nova Bold';
 src: url('../fonts/ProximaNova-Bold.eot');
@@ -28,14 +19,12 @@ font-weight: normal;
 font-style: normal;
 font-display: swap;
 }
-@mixin light($light: normal) {
-  font-family: "Proxima Nova Light", sans-serif;
-  font-weight: $light;
-}
+
 @mixin regular ($regular: normal) {
   font-family: "Proxima Nova Regular", sans-serif;
   font-weight: $regular;
 }
+
 @mixin bold ($bold: normal) {
   font-family: "Proxima Nova Bold", sans-serif;
   font-weight: $bold;

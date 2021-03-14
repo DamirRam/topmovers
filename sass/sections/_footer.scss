@@ -1,9 +1,11 @@
 .footer {
   padding-top: 3rem;
   padding-bottom: 2rem;
+
+  font-size: 1.5rem;
+
   background-color: $bg-dark;
   color: $text-light;
-  font-size: 1.5rem;
   &__wrap {
     display: flex;
     justify-content: space-between;
@@ -32,7 +34,7 @@
   &__contact {
     align-items: flex-end;
   }
-  &__cont {
+  &__contact-item {
     margin-bottom: 1.3rem;
   }
 }
